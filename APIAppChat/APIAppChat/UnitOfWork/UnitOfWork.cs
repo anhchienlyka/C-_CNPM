@@ -1,4 +1,5 @@
 ﻿using APIAppChat.Context;
+using APIAppChat.Repository.Implement;
 using APIAppChat.Repository.Interface;
 using System;
 using System.Collections.Generic;
@@ -9,24 +10,25 @@ namespace APIAppChat.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-
+        private  DataContext _context;
+        private  IUserRepository userRepository;
 
         public UnitOfWork(DataContext context)
         {
-
+            _context = context;
         }
-        public IUserRepository AppUserRepository => throw new NotImplementedException();
+        public IUserRepository UserRepository => this.userRepository ??= new UserRepository(_context);
 
-        public DataContext DataContext => throw new NotImplementedException();
+        public DataContext DataContext =>_context;
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _context.Dispose();
         }
 
         public int SaveChanges()
         {
-            throw new NotImplementedException();
+            return _context.SaveChanges();
         }
     }
 }

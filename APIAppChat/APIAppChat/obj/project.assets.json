@@ -5980,31 +5980,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\chien\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages": {}
+    "C:\\Users\\PCC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chien\\Desktop\\C-_CNPM\\APIAppChat\\APIAppChat\\APIAppChat.csproj",
+      "projectUniqueName": "C:\\Users\\PCC\\Desktop\\C-_CNPM\\APIAppChat\\APIAppChat\\APIAppChat.csproj",
       "projectName": "APIAppChat",
-      "projectPath": "C:\\Users\\chien\\Desktop\\C-_CNPM\\APIAppChat\\APIAppChat\\APIAppChat.csproj",
-      "packagesPath": "C:\\Users\\chien\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chien\\Desktop\\C-_CNPM\\APIAppChat\\APIAppChat\\obj\\",
+      "projectPath": "C:\\Users\\PCC\\Desktop\\C-_CNPM\\APIAppChat\\APIAppChat\\APIAppChat.csproj",
+      "packagesPath": "C:\\Users\\PCC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PCC\\Desktop\\C-_CNPM\\APIAppChat\\APIAppChat\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\chien\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+        "C:\\Users\\PCC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -6067,7 +6061,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

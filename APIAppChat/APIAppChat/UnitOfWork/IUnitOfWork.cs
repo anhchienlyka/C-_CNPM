@@ -10,7 +10,7 @@ namespace APIAppChat.UnitOfWork
 {
  public   interface IUnitOfWork : IDisposable
     {
-        IUserRepository AppUserRepository { get; }
+        IUserRepository  UserRepository { get; }
 
         DataContext DataContext { get; }
 
