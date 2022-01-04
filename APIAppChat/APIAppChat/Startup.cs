@@ -13,6 +13,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using APIAppChat.UnitOfWorks;
+using APIAppChat.Repository.Interface;
+using APIAppChat.Repository.Implement;
+
 namespace APIAppChat
 {
     public class Startup
@@ -27,6 +31,8 @@ namespace APIAppChat
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("AppChatConnection"));

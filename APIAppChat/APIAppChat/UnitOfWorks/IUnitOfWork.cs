@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace APIAppChat.UnitOfWork
+namespace APIAppChat.UnitOfWorks
 {
  public   interface IUnitOfWork : IDisposable
     {
