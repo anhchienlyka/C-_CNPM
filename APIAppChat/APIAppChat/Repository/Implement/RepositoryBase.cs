@@ -19,9 +19,9 @@ namespace APIAppChat.Repository.Implement
             _context = context;
             _dbSet = _context.Set<T>();
         }
-        public void Add(T entity)
+        public async Task Add(T entity)
         {
-            _dbSet.Add(entity);
+            await _dbSet.AddAsync(entity);
         }
 
         public void Delete(T entity)
@@ -29,15 +29,15 @@ namespace APIAppChat.Repository.Implement
             _dbSet.Remove(entity);
         }
 
-        public List<T> GetAll()
+        public async Task<List<T>> GetAll()
         {
-            return _dbSet.ToList();
+            return await _dbSet.ToListAsync();
         }
 
-        public T GetById(int id)
+        public async Task<T> GetById(int id)
         {
 
-            return _dbSet.Find(id);
+            return await _dbSet.FindAsync(id);
         }
 
         public void Update(T entity)

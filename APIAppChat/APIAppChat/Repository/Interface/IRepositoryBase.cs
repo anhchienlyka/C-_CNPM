@@ -7,11 +7,11 @@ namespace APIAppChat.Repository.Interface
 {
     public interface IRepositoryBase<T>  where T : class
     {
-        List<T> GetAll();
+       Task<List<T>> GetAll();
 
-        T GetById(int id);
+        Task<T> GetById(int id);
 
-        void Add(T entity);
+        Task Add(T entity);
 
         void Update(T entity);
 

@@ -20,17 +20,17 @@ namespace APIAppChat.Controllers
         }
 
         [HttpGet]
-        public ActionResult <IEnumerable<AppUser>> GetUsers()
+        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
-            var users = _unitOfWork.UserRepository.GetAll();
-            return users;
+            return await _unitOfWork.UserRepository.GetAll();
+
         }
 
         [HttpGet("{id}")]
-        public ActionResult<AppUser> GetUserById(int id)
+        public async Task<ActionResult<AppUser>> GetUserById(int id)
         {
-            return _unitOfWork.UserRepository.GetById(id);
-            
+            return await _unitOfWork.UserRepository.GetById(id);
+
         }
 
     }
