@@ -9,6 +9,7 @@
                 <th>Giảm giá</th>
                 <th>Số lượng</th>
                 <th>Thành tiền</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -19,7 +20,7 @@
                 <td>{{item.sale}}%</td>
                 <td><input type="number" [(ngModel)]="item.quantity" (change)="updateToLocal(item)"></td>
                 <td>{{item.quantity*item.price*(100-item.sale)/100 | currency: "VND"}}</td>
-
+                <td><button class="btn btn-sm btn-danger" (click)="delete(item)">Delete</button></td>
               </tr>
               <tr>
                 <td colspan="5">Tổng số tiền</td>

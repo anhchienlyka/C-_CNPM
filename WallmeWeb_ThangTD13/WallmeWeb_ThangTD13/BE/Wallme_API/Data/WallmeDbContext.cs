@@ -31,7 +31,7 @@ namespace Wallme_API.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=DESKTOP-2KS3CPM\PCC;Database=Wallme;Trusted_Connection=True;MultipleActiveResultSets=true");
+                optionsBuilder.UseSqlServer(@"Server=DESKTOP-KH6IVBO\PCC;Database=Wallme;Trusted_Connection=True;MultipleActiveResultSets=true");
                 optionsBuilder.LogTo(Console.WriteLine);
             }
             base.OnConfiguring(optionsBuilder);

@@ -28,7 +28,10 @@ export class CartComponent implements OnInit {
 
     Cart.callBack.emit();
   }
-
+  delete(item:any) {
+    this.cartService.removeCartItem(item);
+    this.productsInCart=this.cartService.getProductInCart();
+  }
 }
 export class Cart {
   static callBack = new EventEmitter();

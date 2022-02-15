@@ -1,8 +1,9 @@
 <div class="container">
-    <div class="row">
-        <div class="col-3" *ngFor="let item of products">
+    <div class="row align-items-center">
+        <div class="col-lg-4 col-md-6 feature-col" *ngFor="let item of products">
                 <app-card-product [product]="item" [routerLink]="['/detail', item.id]"
                 routerLinkActive="router-link-active"></app-card-product>
         </div>
     </div>
+    <!-- <app-pagination [totalPages]="totalPages" [pageIndex]="pageIndex" [url]="url"></app-pagination> -->
 </div>

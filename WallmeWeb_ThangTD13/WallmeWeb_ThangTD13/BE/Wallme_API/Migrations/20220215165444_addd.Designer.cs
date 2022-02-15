@@ -10,7 +10,7 @@ using Wallme_API.Data;
 namespace Wallme_API.Migrations
 {
     [DbContext(typeof(WallmeDbContext))]
-    [Migration("20220215142646_addd")]
+    [Migration("20220215165444_addd")]
     partial class addd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -5,7 +5,7 @@ import { ProductOrder } from './cart.model';
   providedIn: 'root'
 })
 export class CartService {
-
+  public cartItemList : any=[]
   constructor() { }
 
   addToCart(productOrder: ProductOrder){
@@ -54,5 +54,19 @@ export class CartService {
     productExistInCart.quantity = productOrder.quantity;
     localStorage.setItem('wallme-cart',JSON.stringify(listProductInCart));
 
+  }
+
+
+  removeCartItem(product:any)
+  {
+
+    this.cartItemList = this.getProductInCart();
+    var productExistInCart = this.cartItemList .find(({productId})=> productId === product.productId);
+    this.cartItemList.map((a:any, index:any)=>{
+      if(productExistInCart.productId=== a.productId){
+        this.cartItemList.splice(index,1);
+      }
+    })
+    localStorage.setItem('wallme-cart',JSON.stringify(this.cartItemList));
   }
 }
