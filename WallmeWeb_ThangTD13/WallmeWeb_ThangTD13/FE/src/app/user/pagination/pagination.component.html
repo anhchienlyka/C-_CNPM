@@ -1,0 +1,33 @@
+<nav aria-label="Page navigation example" class="mt-3 me-3">
+    <div class="row">
+        <div class="col-6">
+
+        </div>
+        <div class="col-6">
+            <ul class="pagination justify-content-end">
+                <select class="form-select d-inline me-3" [(ngModel)]="pageSize" (change)="changePageSize()" style="width: 70px;"> 
+                <option [ngValue]="4">4</option>
+                <option [ngValue]="6" selected>6</option>
+                <option [ngValue]="12">12</option>
+            </select>
+                <li class="page-item" [ngClass]="{disabled: pageIndex==1}">
+                    <a class="page-link" [routerLink]="[url]" [queryParams]="{pageIndex: 1, pageSize: pageSize}" false>
+                        <<</a>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: pageIndex==1}">
+                    <a class="page-link" [routerLink]="[url]" [queryParams]="{pageIndex: pageIndex-1, pageSize: pageSize}">
+                        <</a>
+                </li>
+                <li class="page-item"><a class="page-link" *ngIf="pageIndex>3">...</a></li>
+                <li class="page-item" *ngFor="let item of pageRange" [ngClass]="{disabled: item==pageIndex}"><a class="page-link" [routerLink]="[url]" [queryParams]="{pageIndex: item, pageSize: pageSize}">{{item}}</a></li>
+                <li class="page-item"><a class="page-link" *ngIf="totalPages-pageIndex>2">...</a></li>
+                <li class="page-item" [ngClass]="{disabled: pageIndex==totalPages}">
+                    <a class="page-link" [routerLink]="[url]" [queryParams]="{pageIndex: pageIndex+1, pageSize: pageSize}">></a>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: pageIndex==totalPages}">
+                    <a class="page-link" [routerLink]="[url]" [queryParams]="{pageIndex: totalPages, pageSize: pageSize}">>></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

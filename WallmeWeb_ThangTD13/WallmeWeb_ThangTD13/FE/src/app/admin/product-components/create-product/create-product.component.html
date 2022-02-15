@@ -1,0 +1,79 @@
+<h2>Create Product</h2>
+<form [formGroup]="productForm" (ngSubmit)="submit()" autocomplete="off">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="email" class="form-control" id="name" formControlName="name">
+        <div *ngIf="!name.valid && (name.dirty||name.touched)" class="error">
+            <div [hidden]="!name.errors?.['required']">Name is required</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input class="form-control" id="price" formControlName="price" type="number">
+        <div *ngIf="!price.valid && (price.dirty||price.touched)" class="error">
+            <div [hidden]="!price.errors?.['required']">Price is required</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="sale" class="form-label">Sale (%)</label>
+        <input class="form-control" id="sale" formControlName="sale"  type="number">
+        <div *ngIf="!sale.valid && (sale.dirty||sale.touched)" class="error">
+            <div [hidden]="!sale.errors?.['required']">Sale is required</div>
+            <div [hidden]="!sale.errors?.['min']">Sale must be greater than 0</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="inventory" class="form-label">Inventory</label>
+        <input class="form-control" id="inventory" formControlName="inventory" type="number">
+        <div *ngIf="!inventory.valid && (inventory.dirty||inventory.touched)" class="error">
+            <div [hidden]="!inventory.errors?.['required']">Inventory is required</div>
+            <div [hidden]="!inventory.errors?.['min']">Inventory must be greater than 0</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="categoryId" class="form-label">Category</label>
+        <select class="form-control" formControlName="categoryId">
+            <option selected value="-1">--- Select category ---</option>
+            <option *ngFor="let item of categories" value="{{item.id}}">{{item.name}}</option>
+        </select>
+        <div *ngIf="categoryId.touched && categoryId.errors" class="error">
+            <div [hidden]="!categoryId.errors?.['min']">Category must be selected</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input class="form-control" id="description" formControlName="description">
+        <div *ngIf="!description.valid && (description.dirty||description.touched)" class="error">
+            <div [hidden]="!description.errors?.['required']">Description is required</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input class="form-control" id="image" type="file" (change)="onFileChange($event)" multiple>
+    </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Index</th>
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let url of images; let i = index'>
+            <td>{{i+1}}</td>
+            <td>
+                <img [src]="url" height="150" width="200px" style="margin: 3px;">
+            </td>
+            <td>
+                <button class="btn btn-secondary" (click)="removeImage(i)">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+        
+     <br/>
+    <button class="btn btn-success" [disabled]="!productForm.valid">Create</button>
+</form>
+
+

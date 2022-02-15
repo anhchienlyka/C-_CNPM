@@ -1,0 +1,12 @@
+<h2>Create Category</h2>
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="email" class="form-control" id="name" formControlName="name">
+        <div class="error" *ngIf="!name.valid && (name.dirty||name.touched)">
+            <div [hidden]="!name.errors?.['required']">Name is required</div>
+        </div>
+    </div>
+    <button class="btn btn-success" [disabled]="!name.valid">Create</button>
+</form>
+

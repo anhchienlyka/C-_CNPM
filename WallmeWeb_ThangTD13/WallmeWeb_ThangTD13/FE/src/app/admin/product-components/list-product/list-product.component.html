@@ -1,0 +1,31 @@
+<h2>List Product</h2>
+<!-- <button class="btn btn-success" [routerLink]="['/admin/product/create']" routerLinkActive="router-link-active" >Create</button> -->
+<table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Sale</th>
+        <th>Inventory</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of products; let i = index">
+        <th>{{i+1}}</th>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price | currency: "VND"}}</td>
+        <td>{{item.sale}}</td>
+        <td>{{item.inventory}}</td>
+        <td>
+            <!-- <a class="btn btn-success">Details</a> &nbsp; -->
+            <a class="btn btn-warning" [routerLink]="['update', item.id]">Update</a>&nbsp;
+            <a class="btn btn-danger" (click)="deleteProduct(item.id)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-pagination [totalPages]="totalPages" [pageIndex]="pageIndex" [url]="url"></app-pagination>

@@ -1,0 +1,76 @@
+<div class="container-fluid" id="page-container">
+  <div id="content-wrap">
+    <div class="row mt-3">
+        <div class="col-2 ps-5">
+            <img src="../../../assets/wallme_logo.PNG" alt="logo" width="140px">
+        </div>
+        <div class="col-6 ps-4">
+            <div class="input-group">
+                <form [formGroup]="findForm" (ngSubmit)="onSubmit()" class="form-inline">
+                  <div class="input-group">
+                    <input type="search" id="form1" class="form-control" style="width: 500px;" formControlName="findValue"/>
+                    <span class="input-group-append">
+                      <button class="btn btn-outline-secondary border" type="submit">
+                          <i class="fa fa-search"></i>
+                      </button>
+                  </span>
+                  </div>
+              </form>
+                
+              </div>
+        </div>
+        <div class="col-4">
+          <span *ngIf="currentUser!==null">Xin chào, {{currentUser?.username}}</span> &nbsp;&nbsp;
+            <button class="btn btn-success position-relative" [routerLink]="['cart']" *ngIf="currentUser!==null&&currentUser?.role!=='admin'">
+              GIỎ HÀNG <i class="fas fa-shopping-cart"></i>
+              <span class="badge position-absolute top-0 start-100 translate-middle bg-warning">{{numberOfProductInCart}}</span>
+            </button>
+            <button class="btn btn-success ms-4" [routerLink]="['login']" *ngIf="currentUser===null">
+              ĐĂNG NHẬP <i class="fas fa-user"></i>
+            </button>
+            <button class="btn btn-success ms-4" *ngIf="currentUser?.role==='admin'" [routerLink]="['admin']">
+              ADMIN <i class="fas fa-toolbox"></i>
+            </button>
+            <button class="btn btn-success ms-4" *ngIf="currentUser!==null" [routerLink]="['login']" (click)="logout()">
+              ĐĂNG XUẤT <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-12">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">TRANG CHỦ</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          DANH MỤC
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li *ngFor="let item of categories"><a class="dropdown-item" [routerLink]="['/bycategory', item.id]"
+                          routerLinkActive="router-link-active">{{item.name}}</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+    <div class="container-fluid footer" id="footer">
+        <div class="row ">
+            <div class="col-3 ms-5"><img src="../../../assets/wallme_logo.PNG" alt="logo" width="180px"></div>
+            <div class="col-3">
+                Hotline: <br>
+                043.565.1123
+            </div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+</div>

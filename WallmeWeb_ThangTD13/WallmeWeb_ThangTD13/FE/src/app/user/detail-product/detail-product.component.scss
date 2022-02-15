@@ -1,0 +1,32 @@
+.carousel-item{
+    height: 500px;
+    width: 400px;
+    object-fit: cover;
+}
+.carousel-item img{
+    height: 500px !important;
+    width: 400px !important;
+}
+#new-price{
+    font-size: 26px;
+    font-weight: 600;
+    color: rgb(255, 2, 2);
+}
+#old-price{
+    font-size: 17px;
+    text-decoration: line-through;
+    color: grey;
+}
+#saleoff-percent{
+    font-size: 17px;
+    color: grey;
+}
+#qty{
+    width: 200px;
+}
+img{
+    object-fit: cover;
+}
+#description{
+    font-size: 22px;
+}

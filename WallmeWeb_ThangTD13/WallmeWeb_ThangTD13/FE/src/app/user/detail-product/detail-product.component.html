@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-4" style="width: 400px;">
+            <div id="carouselExampleControls" class="carousel images" data-bs-ride="carousel" >
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="{{imageUrl + images?.[0].imagePath}}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" *ngFor="let item of images | slice:1">
+                    <img src="{{imageUrl + item?.imagePath}}" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+        </div>
+        <div class="col-6 ms-4">
+            <h1>{{product?.name}}</h1>
+            <span id="new-price">{{product?.price*(100-product?.sale)/100 | currency: "VND"}}</span> &nbsp;&nbsp;&nbsp;
+            <span *ngIf="product?.sale!=0" id="old-price">{{product?.price | currency: "VND"}}</span> &nbsp;&nbsp;&nbsp;
+            <span *ngIf="product?.sale!=0" id="saleoff-percent">Giảm giá {{product?.sale}}%</span>
+            <hr>
+            <span>Kho: {{product?.inventory}}</span>
+                <input type="number" class="form-control mt-3" id="qty" [(ngModel)]="quantity">
+                <button class="btn btn-primary mt-3" (click)="addToCart(product)">ADD TO CART<i class="fas fa-shopping-cart"></i></button>
+            <p id="description"> &nbsp;&nbsp;&nbsp;&nbsp;{{product?.description}}</p>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>

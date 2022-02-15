@@ -1,0 +1,19 @@
+.footer{
+    background-color: rgb(214, 214, 214);
+    margin-top: 100px;
+}
+#page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+
+#content-wrap {
+padding-bottom: 5.5rem;    /* Footer height */
+}
+
+#footer {
+position: absolute;
+bottom: 0;
+width: 99%;
+height: 3.5rem;            /* Footer height */
+}

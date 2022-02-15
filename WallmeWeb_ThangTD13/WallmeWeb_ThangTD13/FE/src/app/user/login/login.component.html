@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row mt-4">
+        <div class="col-4"></div>
+        <div class="col-4 text-center login-container">
+            <h2>ĐĂNG NHẬP</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3 row mt-3">
+                    <label for="username" class="col-sm-3 col-form-label">Username</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="username"  formControlName="username">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="password" class="col-sm-3 col-form-label">Password</label>
+                    <div class="col-sm-9">
+                      <input type="password" class="form-control" id="password" formControlName="password">
+                    </div>
+                </div>
+                <button class="btn btn-primary">Đăng nhập</button> 
+            </form>
+            <br>
+            <br>
+            Bạn chưa có tài khoản?
+            <a [routerLink]="['/register']" routerLinkActive="router-link-active">Đăng ký</a>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>

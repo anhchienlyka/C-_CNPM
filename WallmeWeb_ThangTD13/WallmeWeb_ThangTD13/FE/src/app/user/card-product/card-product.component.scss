@@ -1,0 +1,28 @@
+a{
+    color: black;
+    text-decoration: none;
+}
+.add-to-cart{
+    color: white;
+}
+.card-img-top{
+    object-fit: cover;
+    height: 300px;
+}
+#sale-icon{
+    width: 28px;
+}
+#new-price{
+    font-size: 26px;
+    font-weight: 600;
+    color: rgb(255, 2, 2);
+}
+#old-price{
+    font-size: 17px;
+    text-decoration: line-through;
+    color: grey;
+}
+#saleoff-percent{
+    font-size: 17px;
+    color: grey;
+}

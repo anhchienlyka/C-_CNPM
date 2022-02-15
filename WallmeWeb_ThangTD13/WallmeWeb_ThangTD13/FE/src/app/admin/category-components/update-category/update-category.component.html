@@ -1,0 +1,12 @@
+<h2>Update Category</h2>
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="id" class="form-label">Id</label>
+        <input class="form-control" id="id" formControlName="id">
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input class="form-control" id="name" formControlName="name">
+    </div>
+    <button class="btn btn-success">Update</button>
+</form>
