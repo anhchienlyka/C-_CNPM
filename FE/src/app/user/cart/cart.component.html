@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Giảm giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th style="text-align:center ;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of productsInCart; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.productName}}</td>
+                    <td>{{item.price | currency: "VND"}}</td>
+                    <td>{{item.sale}}%</td>
+                    <td><input type="number" [(ngModel)]="item.quantity" (change)="updateToLocal(item)"></td>
+                    <td>{{item.quantity*item.price*(100-item.sale)/100 | currency: "VND"}}</td>
+                    <td style="text-align: center;"><button class="btn btn-sm btn-danger" (click)="delete(item)"><i class="fa-solid fa-trash-can"></i></button></td>
+                </tr>
+                <tr>
+                    <td colspan="5">Tổng số tiền</td>
+                    <td>{{totalPrice | currency: "VND"}}</td>
+                    <td style="text-align: center;">
+                        <button class="btn btn-sm btn-warning">Thanh Toán</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
