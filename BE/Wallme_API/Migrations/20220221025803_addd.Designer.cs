@@ -10,7 +10,7 @@ using Wallme_API.Data;
 namespace Wallme_API.Migrations
 {
     [DbContext(typeof(WallmeDbContext))]
-    [Migration("20220215165444_addd")]
+    [Migration("20220221025803_addd")]
     partial class addd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -176,9 +176,6 @@ namespace Wallme_API.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
@@ -214,6 +211,9 @@ namespace Wallme_API.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("Total_Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("OrderId", "ProductId");
 

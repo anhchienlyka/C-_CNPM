@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FindProductsByNameComponent } from './find-products-by-name/find-products-by-name.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CompleteComponent } from './complete/complete.component';
 
 
 
@@ -29,6 +31,8 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
     FindProductsByNameComponent,
     PaginationComponent,
     UnauthorizedComponent,
+    CheckoutComponent,
+    CompleteComponent,
   ],
   imports: [
     CommonModule,

@@ -16,8 +16,6 @@ namespace Wallme_API.Models
 
         public decimal TotalPrice { get; set; }
 
-        public string Address { get; set; }
-
         public OrderStatus Status { get; set; }
 
         public bool Payment { get; set; }

@@ -26,7 +26,9 @@
                     <td colspan="5">Tổng số tiền</td>
                     <td>{{totalPrice | currency: "VND"}}</td>
                     <td style="text-align: center;">
-                        <button class="btn btn-sm btn-warning">Thanh Toán</button>
+                        <a [routerLink]="['/cart/checkout']" routerLinkActive="router-link-active">
+                            <button class="btn btn-sm btn-warning">Thanh Toán</button>
+                        </a>
                     </td>
                 </tr>
             </tbody>

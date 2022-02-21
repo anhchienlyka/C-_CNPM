@@ -42,128 +42,115 @@ namespace Wallme_API.Data
 
             List<Category> categories = new List<Category>()
             {
-                new Category(){Name = "Cây cảnh phong thủy"},
-                new Category(){Name = "Cây cảnh để bàn"},
-                new Category(){Name = "Cây ban công"},
-                new Category(){Name = "Sen đá"},
-                new Category(){Name = "Cây thủy canh"},
-                new Category(){Name = "Dụng cụ làm vườn"},
-                new Category(){Name = "Chậu cây"},
+                new Category(){Name = "Máy Ảnh"},
+                new Category(){Name = "Máy Quay"},
+                new Category(){Name = "Ống Kính"},
+                new Category(){Name = "Âm Thanh"},
+                new Category(){Name = "Phụ Kiện"},
+                new Category(){Name = "Đồng hồ"},
+                new Category(){Name = "Đồ Công Nghệ Khác"},
             };
             _context.Categories.AddRange(categories);
             List<Product> products = new List<Product>()
             {
                 new Product()
                 {
-                    Name = "Cây ngũ gia bì",
+                    Name = "Máy Ảnh Canon Powershot SX620 HS - Đen",
                     Price = 200000,
                     Sale = 15,
                     Inventory = 5,
-                    Description = "Ngũ gia bì là loại thực vật thân gỗ, có kích thước nhỏ và dễ trồng bằng phương pháp nhân giống hoặc giâm cành. " +
-                    "Ngày nay, cây ngũ gia bì ngày càng được ưa chuộng bởi có khả năng lọc sạch không khí, chống côn trùng, hạn chế bức xạ từ máy tính " +
-                    "và đem đến phong thủy, sự may mắn cho gia chủ.",
+                    Description = "Canon 6D Mark II Kit EF 24-105 F4L IS II USM  là chiếc máy ảnh cao cấp được nâng cấp từ người đàn anh Canon 6D đã được sản xuất từ năm 2012. Phiên bản mới được nâng cấp cảm biến ảnh full-frame với độ phân giải 26.2 MP tích hợp công nghệ lấy nét Dual Pixel cùng chip xử lý hình ảnh DIGIC 7. Canon cũng nâng cấp khả năng quay phim với chuẩn 1080p/60fps và tích hợp đầy đủ các kết nối Wi-Fi, Bluetooth, NFC và GPS vào trong một chiếc máy thuộc dòng cao cấp.",
                     Category = categories[1],
                 },
                 new Product()
                 {
-                    Name = "Cây phát tài",
+                    Name = "Máy ảnh Canon EOS 6D Mark II Kit EF24-105mm F4",
                     Price = 180000,
                     Sale = 10,
                     Inventory = 10,
-                    Description = "Cây phát tài không chỉ là cây cảnh giúp tô điểm thêm không gian trong nhà, giúp nhà bạn có màu xanh mát mà còn đem đến tài lộc," +
-                    " sự may mắn và thịnh vượng cho gia chủ. Và cây phát tài rất hợp phong thủy với những ai tuổi Mão.",
-                    Category = categories[0],
+                    Description = "Canon là một trong hai thương hiệu lớn nhất trên thị trường máy ảnh DSLR. Tuy nhiên, những sản phẩm của Canon lại vô cùng đa dạng, làm cho người mua gặp nhiều bối rối khi lựa chọn. Hãy cùng Điện máy XANH tìm hiểu các dòng máy ảnh cơ DSRL của Canon và đối tượng sử dụng nhé!",
+                  Category = categories[0],
                 },
                 new Product()
                 {
-                    Name = "Cây trầu bà",
+                    Name = "Máy Ảnh Canon EOS 6D Mark II (Nhập Khẩu)",
                     Price = 150000,
                     Sale = 0,
                     Inventory = 10,
-                    Description = "Cây trầu bà (Hoàng Tam Điệp) là loại thân leo, có hoa, thường mọc thành cụm leo, có khả năng thanh lọc không khí, hạn chế bức xạ " +
-                    "từ máy tính, sóng wifi, khói thuốc nên rất thích hợp trồng trong phòng ngủ hay phòng khách. Cây trầu bà có màu xanh nên gần như không kiêng kỵ bất " +
-                    "cứ tuổi nào, tuy nhiên hợp nhất vẫn là những người tuổi Ngọ.",
+                    Description = "Canon là một trong hai thương hiệu lớn nhất trên thị trường máy ảnh DSLR. Tuy nhiên, những sản phẩm của Canon lại vô cùng đa dạng, làm cho người mua gặp nhiều bối rối khi lựa chọn. Hãy cùng Điện máy XANH tìm hiểu các dòng máy ảnh cơ DSRL của Canon và đối tượng sử dụng nhé!",
                     Category = categories[1],
                 },
                 new Product()
                 {
-                    Name = "Cây Táo mèo",
+                    Name = "Máy Ảnh Canon EOS 5D Mark IV Body (Nhập Khẩu)",
                     Price = 300000,
                     Sale = 5,
                     Inventory = 4,
-                    Description = "Cây lộc vừng có tên khoa học là Barringtonia acutangula, là thực vật thân gỗ có đường kính lớn, hoa màu đỏ. Trong tiếng Hán, lộc vừng " +
-                    "có ý nghĩa mang đến sự may mắn, tài lộc dồi dào, ngoài ra cây lộc vừng còn ý nghĩa về sự vững chắc, trường tồn và khả năng trừ tà, tăng dương khí trong nhà.",
+                    Description = "Canon là một trong hai thương hiệu lớn nhất trên thị trường máy ảnh DSLR. Tuy nhiên, những sản phẩm của Canon lại vô cùng đa dạng, làm cho người mua gặp nhiều bối rối khi lựa chọn. Hãy cùng Điện máy XANH tìm hiểu các dòng máy ảnh cơ DSRL của Canon và đối tượng sử dụng nhé!",
+                   Category = categories[0],
+                },
+                new Product()
+                {
+                    Name = "Máy Ảnh Fujifilm X-T30 Mark II + Kit XF 18-55mm",
+                    Price = 300000,
+                    Sale = 5,
+                    Inventory = 4,
+                    Description = "Canon là một trong hai thương hiệu lớn nhất trên thị trường máy ảnh DSLR. Tuy nhiên, những sản phẩm của Canon lại vô cùng đa dạng, làm cho người mua gặp nhiều bối rối khi lựa chọn. Hãy cùng Điện máy XANH tìm hiểu các dòng máy ảnh cơ DSRL của Canon và đối tượng sử dụng nhé!",
+                   Category = categories[0],
+                },
+                new Product()
+                {
+                    Name = "Máy Ảnh Fujifilm X-T30 Mark II Body/ Black",
+                    Price = 300000,
+                    Sale = 5,
+                    Inventory = 4,
+                   Description = "Canon là một trong hai thương hiệu lớn nhất trên thị trường máy ảnh DSLR. Tuy nhiên, những sản phẩm của Canon lại vô cùng đa dạng, làm cho người mua gặp nhiều bối rối khi lựa chọn. Hãy cùng Điện máy XANH tìm hiểu các dòng máy ảnh cơ DSRL của Canon và đối tượng sử dụng nhé!",
+                   Category = categories[0],
+                },
+                new Product()
+                {
+                    Name = "Máy Ảnh Canon EOS 90D Kit EF",
+                    Price = 300000,
+                    Sale = 5,
+                    Inventory = 4,
+                    Description = "Canon là một trong hai thương hiệu lớn nhất trên thị trường máy ảnh DSLR. Tuy nhiên, những sản phẩm của Canon lại vô cùng đa dạng, làm cho người mua gặp nhiều bối rối khi lựa chọn. Hãy cùng Điện máy XANH tìm hiểu các dòng máy ảnh cơ DSRL của Canon và đối tượng sử dụng nhé!",
                     Category = categories[0],
                 },
                 new Product()
                 {
-                    Name = "Cây Vạn Tuế",
+                    Name = "Máy Ảnh Canon EOS 90D",
                     Price = 300000,
                     Sale = 5,
                     Inventory = 4,
-                    Description = "Cây lộc vừng có tên khoa học là Barringtonia acutangula, là thực vật thân gỗ có đường kính lớn, hoa màu đỏ. Trong tiếng Hán, lộc vừng " +
-                    "có ý nghĩa mang đến sự may mắn, tài lộc dồi dào, ngoài ra cây lộc vừng còn ý nghĩa về sự vững chắc, trường tồn và khả năng trừ tà, tăng dương khí trong nhà.",
+                   Description = "Canon là một trong hai thương hiệu lớn nhất trên thị trường máy ảnh DSLR. Tuy nhiên, những sản phẩm của Canon lại vô cùng đa dạng, làm cho người mua gặp nhiều bối rối khi lựa chọn. Hãy cùng Điện máy XANH tìm hiểu các dòng máy ảnh cơ DSRL của Canon và đối tượng sử dụng nhé!",
+                   Category = categories[0],
+                },
+                new Product()
+                {
+                    Name = "Máy Ảnh Canon EOS 90D",
+                    Price = 300000,
+                    Sale = 5,
+                    Inventory = 4,
+                    Description = "Canon là một trong hai thương hiệu lớn nhất trên thị trường máy ảnh DSLR. Tuy nhiên, những sản phẩm của Canon lại vô cùng đa dạng, làm cho người mua gặp nhiều bối rối khi lựa chọn. Hãy cùng Điện máy XANH tìm hiểu các dòng máy ảnh cơ DSRL của Canon và đối tượng sử dụng nhé!",
+                  Category = categories[0],
+                },
+                new Product()
+                {
+                    Name = "Máy Ảnh Canon EOS 90D",
+                    Price = 300000,
+                    Sale = 5,
+                    Inventory = 4,
+                    Description = "Canon là một trong hai thương hiệu lớn nhất trên thị trường máy ảnh DSLR. Tuy nhiên, những sản phẩm của Canon lại vô cùng đa dạng, làm cho người mua gặp nhiều bối rối khi lựa chọn. Hãy cùng Điện máy XANH tìm hiểu các dòng máy ảnh cơ DSRL của Canon và đối tượng sử dụng nhé!",
                     Category = categories[0],
                 },
                 new Product()
                 {
-                    Name = "Cây Củ Cải",
+                    Name = "Máy Ảnh Canon EOS 90D",
                     Price = 300000,
                     Sale = 5,
                     Inventory = 4,
-                    Description = "Cây lộc vừng có tên khoa học là Barringtonia acutangula, là thực vật thân gỗ có đường kính lớn, hoa màu đỏ. Trong tiếng Hán, lộc vừng " +
-                    "có ý nghĩa mang đến sự may mắn, tài lộc dồi dào, ngoài ra cây lộc vừng còn ý nghĩa về sự vững chắc, trường tồn và khả năng trừ tà, tăng dương khí trong nhà.",
-                    Category = categories[0],
-                },
-                new Product()
-                {
-                    Name = "Cây Đào phai",
-                    Price = 300000,
-                    Sale = 5,
-                    Inventory = 4,
-                    Description = "Cây lộc vừng có tên khoa học là Barringtonia acutangula, là thực vật thân gỗ có đường kính lớn, hoa màu đỏ. Trong tiếng Hán, lộc vừng " +
-                    "có ý nghĩa mang đến sự may mắn, tài lộc dồi dào, ngoài ra cây lộc vừng còn ý nghĩa về sự vững chắc, trường tồn và khả năng trừ tà, tăng dương khí trong nhà.",
-                    Category = categories[0],
-                },
-                new Product()
-                {
-                    Name = "Cây lộc Lá",
-                    Price = 300000,
-                    Sale = 5,
-                    Inventory = 4,
-                    Description = "Cây lộc vừng có tên khoa học là Barringtonia acutangula, là thực vật thân gỗ có đường kính lớn, hoa màu đỏ. Trong tiếng Hán, lộc vừng " +
-                    "có ý nghĩa mang đến sự may mắn, tài lộc dồi dào, ngoài ra cây lộc vừng còn ý nghĩa về sự vững chắc, trường tồn và khả năng trừ tà, tăng dương khí trong nhà.",
-                    Category = categories[0],
-                },
-                new Product()
-                {
-                    Name = "Cây Không Tên",
-                    Price = 300000,
-                    Sale = 5,
-                    Inventory = 4,
-                    Description = "Cây lộc vừng có tên khoa học là Barringtonia acutangula, là thực vật thân gỗ có đường kính lớn, hoa màu đỏ. Trong tiếng Hán, lộc vừng " +
-                    "có ý nghĩa mang đến sự may mắn, tài lộc dồi dào, ngoài ra cây lộc vừng còn ý nghĩa về sự vững chắc, trường tồn và khả năng trừ tà, tăng dương khí trong nhà.",
-                    Category = categories[0],
-                },
-                new Product()
-                {
-                    Name = "Cây Mắt ngọc",
-                    Price = 300000,
-                    Sale = 5,
-                    Inventory = 4,
-                    Description = "Cây lộc vừng có tên khoa học là Barringtonia acutangula, là thực vật thân gỗ có đường kính lớn, hoa màu đỏ. Trong tiếng Hán, lộc vừng " +
-                    "có ý nghĩa mang đến sự may mắn, tài lộc dồi dào, ngoài ra cây lộc vừng còn ý nghĩa về sự vững chắc, trường tồn và khả năng trừ tà, tăng dương khí trong nhà.",
-                    Category = categories[0],
-                },
-                new Product()
-                {
-                    Name = "Cây Xà cừ",
-                    Price = 300000,
-                    Sale = 5,
-                    Inventory = 4,
-                    Description = "Cây lộc vừng có tên khoa học là Barringtonia acutangula, là thực vật thân gỗ có đường kính lớn, hoa màu đỏ. Trong tiếng Hán, lộc vừng " +
-                    "có ý nghĩa mang đến sự may mắn, tài lộc dồi dào, ngoài ra cây lộc vừng còn ý nghĩa về sự vững chắc, trường tồn và khả năng trừ tà, tăng dương khí trong nhà.",
-                    Category = categories[0],
+                    Description = "Canon là một trong hai thương hiệu lớn nhất trên thị trường máy ảnh DSLR. Tuy nhiên, những sản phẩm của Canon lại vô cùng đa dạng, làm cho người mua gặp nhiều bối rối khi lựa chọn. Hãy cùng Điện máy XANH tìm hiểu các dòng máy ảnh cơ DSRL của Canon và đối tượng sử dụng nhé!",
+                   Category = categories[0],
                 },
             };
             _context.Products.AddRange(products);
@@ -171,57 +158,57 @@ namespace Wallme_API.Data
             {
                 new Product_Image()
                 {
-                    ImagePath = "https://khbvptr.vn/wp-content/uploads/2020/10/ngu-gia-bi-1.jpg",
+                    ImagePath = "https://binhminhdigital.com/storedata/images/product/canon-eos-1500d-kit-1855mm-f3556-iii(2).jpg",
                     Product = products[0],
                 },
                 new Product_Image()
                 {
-                    ImagePath = "https://khbvptr.vn/wp-content/uploads/2020/10/cay-phat-tai-1.jpg",
+                    ImagePath = "https://binhminhdigital.com/storedata/images/product/canon-eos-1500d-kit-1855mm-f3556-iii(2).jpg",
                     Product = products[1],
                 },
                 new Product_Image()
                 {
-                    ImagePath = "https://khbvptr.vn/wp-content/uploads/2020/10/cay-trau-ba-1-1.jpg",
+                    ImagePath = "https://zshop.vn/blogs/wp-content/uploads/2019/04/4-e1560154793954.png",
                     Product = products[2],
                 },
                 new Product_Image()
                 {
-                    ImagePath = "https://khbvptr.vn/wp-content/uploads/2020/10/cay-loc-vung-12.jpg",
+                    ImagePath = "https://zshop.vn/blogs/wp-content/uploads/2019/04/4-e1560154793954.png",
                     Product = products[3],
                 },
                 new Product_Image()
                 {
-                    ImagePath = "https://khbvptr.vn/wp-content/uploads/2020/10/cay-cau-canh-1.jpg",
+                    ImagePath = "https://zshop.vn/blogs/wp-content/uploads/2019/04/4-e1560154793954.png",
                     Product = products[4],
                 },
                 new Product_Image()
                 {
-                    ImagePath = "https://khbvptr.vn/wp-content/uploads/2020/10/cay-cau-canh-1.jpg",
+                    ImagePath = "https://zshop.vn/blogs/wp-content/uploads/2019/04/4-e1560154793954.png",
                     Product = products[5],
                 },
                 new Product_Image()
                 {
-                    ImagePath = "https://khbvptr.vn/wp-content/uploads/2020/10/cay-cau-canh-1.jpg",
+                    ImagePath = "https://cdn.tgdd.vn/Files/2019/07/17/1180058/mayanhcodsrlcuacanon7d.jpg",
                     Product = products[6],
                 },
                 new Product_Image()
                 {
-                    ImagePath = "https://khbvptr.vn/wp-content/uploads/2020/10/cay-cau-canh-1.jpg",
+                    ImagePath = "https://cdn.tgdd.vn/Files/2019/07/17/1180058/mayanhcodsrlcuacanon7d.jpg",
                     Product = products[7],
                 },
                 new Product_Image()
                 {
-                    ImagePath = "https://khbvptr.vn/wp-content/uploads/2020/10/cay-cau-canh-1.jpg",
+                    ImagePath = "https://cdn.tgdd.vn/Files/2019/07/17/1180058/mayanhcodsrlcuacanon7d.jpg",
                     Product = products[8],
                 },
                 new Product_Image()
                 {
-                    ImagePath = "https://khbvptr.vn/wp-content/uploads/2020/10/cay-cau-canh-1.jpg",
+                    ImagePath = "https://cdn.tgdd.vn/Files/2019/07/17/1180058/mayanhcodsrlcuacanon7d.jpgg",
                     Product = products[9],
                 },
                 new Product_Image()
                 {
-                    ImagePath = "https://khbvptr.vn/wp-content/uploads/2020/10/cay-cau-canh-1.jpg",
+                    ImagePath = "https://cdn.tgdd.vn/Files/2019/07/17/1180058/mayanhcodsrlcuacanon7d.jpg",
                     Product = products[10],
                 }
             };      
