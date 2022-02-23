@@ -20,6 +20,6 @@ namespace Wallme_API.Models
 
         public bool Payment { get; set; }
 
-        public ICollection<Order_Item> OrderItems { get; set; }
+        public ICollection<OrderDetail>  OrderDetails { get; set; }
     }
 }

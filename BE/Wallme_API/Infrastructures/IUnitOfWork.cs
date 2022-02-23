@@ -14,6 +14,7 @@ namespace Wallme_API.Infrastructures
 
         IProductImageRepository ProductImageRepository { get; }
 
+        IOrderDetailRepository OrderDetailRepository { get; }
         WallmeDbContext WallmeDbContext { get; }
 
         int SaveChanges();

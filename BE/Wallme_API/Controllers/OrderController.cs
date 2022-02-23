@@ -41,6 +41,21 @@ namespace Wallme_API.Controllers
             Order order = _mapper.Map<Order>(createOrderVM);
             _unitOfWork.OrderRepository.Add(order);
             _unitOfWork.SaveChanges();
+            var orderId = _unitOfWork.OrderRepository.GetLastOrderId();
+            foreach (var item in createOrderVM.OrderItems)
+            {
+                item.OrderId = orderId;
+                OrderDetail orderDetail = new OrderDetail()
+                {
+                    OrderId = item.OrderId,
+                    Price = item.Price,
+                    ProductId = item.ProductId,
+                    Quantity = item.Quantity,
+                    Total_Price = item.Price * item.Quantity
+                };
+                _unitOfWork.OrderDetailRepository.Add(orderDetail);
+                _unitOfWork.SaveChanges();
+            }      
         }
 
         [HttpDelete]

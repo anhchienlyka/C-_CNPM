@@ -27,7 +27,7 @@ namespace Wallme_API.ViewModels.AutoMappers
             CreateMap<Order, CreateOrderVM>().ReverseMap();
 
             //OrderItem
-            CreateMap<Order_Item, CreateOrderItemVM>().ReverseMap();
+            CreateMap<OrderDetail, CreateOrderItemVM>().ReverseMap();
 
             //Product Image
             CreateMap<Product_Image, CreateProductImageVM>().ReverseMap();
@@ -37,6 +37,7 @@ namespace Wallme_API.ViewModels.AutoMappers
             CreateMap<User, CreateUserVM>().ReverseMap();
             CreateMap<User, UpdateUserVM>().ReverseMap();
             CreateMap<User, UserVM>().ReverseMap();
+            
         }
     }
 }

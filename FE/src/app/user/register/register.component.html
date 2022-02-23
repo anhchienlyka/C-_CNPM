@@ -7,10 +7,10 @@
             <h2>ĐĂNG KÝ</h2>
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
                 <div class="mb-3 row">
-                    <label for="email" class="col-2 col-form-label">FullName</label>
+                    <label for="fullname" class="col-2 col-form-label">FullName</label>
                     <div class="col-4">
-                        <input type="email" class="form-control" id="email" formControlName="email">
-                        <div class="error" *ngIf="!email.valid && (email.dirty ||email.touched)">
+                        <input type="text" class="form-control" id="fullname" formControlName="fullname">
+                        <div class="error" *ngIf="!fullname.valid && (fullname.dirty ||fullname.touched)">
                             <div [hidden]="!email.errors?.['required']">FullName không được để trống</div>
 
                         </div>
@@ -30,14 +30,14 @@
                         <input type="text" class="form-control" id="username" formControlName="username">
                         <div class="error" *ngIf="!username.valid && (username.dirty ||username.touched)">
                             <div [hidden]="!username.errors?.['required']">Username không được để trống</div>
-                            <div [hidden]="!username.errors?.['minlength']">Username tối thiểu 10 ký tự</div>
+                            <div [hidden]="!username.errors?.['minlength']">Username tối thiểu 5 ký tự</div>
                         </div>
                     </div>
-                    <label for="username" class="col-sm-2 col-form-label">Address</label>
+                    <label for="address" class="col-sm-2 col-form-label">Address</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="username" formControlName="username">
-                        <div class="error" *ngIf="!username.valid && (username.dirty ||username.touched)">
-                            <div [hidden]="!username.errors?.['required']">Address không được để trống</div>
+                        <input type="text" class="form-control" id="address" formControlName="address">
+                        <div class="error" *ngIf="!address.valid && (address.dirty ||address.touched)">
+                            <div [hidden]="!address.errors?.['required']">Address không được để trống</div>
 
                         </div>
                     </div>
@@ -51,11 +51,11 @@
                             <div [hidden]="!password.errors?.['minlength']">Password tối thiểu 8 ký tự</div>
                         </div>
                     </div>
-                    <label for="password" class="col-sm-2 col-form-label">Phone</label>
+                    <label for="phone" class="col-sm-2 col-form-label">Phone</label>
                     <div class="col-sm-4">
-                        <input type="number" class="form-control" id="password" formControlName="password">
-                        <div class="error" *ngIf="!password.valid && (password.dirty ||password.touched)">
-                            <div [hidden]="!password.errors?.['required']">Phone không được để trống</div>
+                        <input type="text" class="form-control" id="phone" formControlName="phoneNumber">
+                        <div class="error" *ngIf="!phone.valid && (phone.dirty ||phone.touched)">
+                            <div [hidden]="!phone.errors?.['required']">Phone không được để trống</div>
 
                         </div>
                     </div>

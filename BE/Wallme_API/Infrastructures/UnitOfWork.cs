@@ -15,7 +15,7 @@ namespace Wallme_API.Infrastructures
         private IProductRepository productRepository;
         private IOrderRepository orderRepository;
         private IProductImageRepository productImageRepository;
-
+        private IOrderDetailRepository orderDetailRepository;
         public UnitOfWork(WallmeDbContext context)
         {
             _context = context;
@@ -28,6 +28,8 @@ namespace Wallme_API.Infrastructures
 
 
         public WallmeDbContext WallmeDbContext => _context;
+
+        public IOrderDetailRepository OrderDetailRepository => this.orderDetailRepository??new OrderDetailRepository(_context);
 
         public void Dispose()
         {

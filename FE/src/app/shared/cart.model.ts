@@ -1,6 +1,3 @@
-export interface OrderItem{
-    
-}
 
 export interface ProductOrder{
     productId: number,

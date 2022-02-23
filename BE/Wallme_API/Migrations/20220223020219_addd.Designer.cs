@@ -10,7 +10,7 @@ using Wallme_API.Data;
 namespace Wallme_API.Migrations
 {
     [DbContext(typeof(WallmeDbContext))]
-    [Migration("20220221025803_addd")]
+    [Migration("20220223020219_addd")]
     partial class addd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -198,7 +198,7 @@ namespace Wallme_API.Migrations
                     b.ToTable("Order");
                 });
 
-            modelBuilder.Entity("Wallme_API.Models.Order_Item", b =>
+            modelBuilder.Entity("Wallme_API.Models.OrderDetail", b =>
                 {
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
@@ -219,7 +219,7 @@ namespace Wallme_API.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("Wallme_API.Models.Product", b =>
@@ -329,6 +329,9 @@ namespace Wallme_API.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -449,16 +452,16 @@ namespace Wallme_API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Wallme_API.Models.Order_Item", b =>
+            modelBuilder.Entity("Wallme_API.Models.OrderDetail", b =>
                 {
                     b.HasOne("Wallme_API.Models.Order", "Order")
-                        .WithMany("OrderItems")
+                        .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Wallme_API.Models.Product", "Product")
-                        .WithMany("OrderItems")
+                        .WithMany("OrderDetails")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -497,14 +500,14 @@ namespace Wallme_API.Migrations
 
             modelBuilder.Entity("Wallme_API.Models.Order", b =>
                 {
-                    b.Navigation("OrderItems");
+                    b.Navigation("OrderDetails");
                 });
 
             modelBuilder.Entity("Wallme_API.Models.Product", b =>
                 {
                     b.Navigation("Comments");
 
-                    b.Navigation("OrderItems");
+                    b.Navigation("OrderDetails");
 
                     b.Navigation("ProductImages");
                 });

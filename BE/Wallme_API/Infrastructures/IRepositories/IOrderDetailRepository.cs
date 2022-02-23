@@ -6,9 +6,8 @@ using Wallme_API.Models;
 
 namespace Wallme_API.Infrastructures.IRepositories
 {
-    public interface IOrderRepository : IGenericRepository<Order>
+    public interface IOrderDetailRepository : IGenericRepository<OrderDetail>
     {
-         int GetLastOrderId();
-      
+
     }
 }

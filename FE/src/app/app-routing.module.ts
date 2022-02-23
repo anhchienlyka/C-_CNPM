@@ -21,6 +21,7 @@ import { AuthGuardService } from './shared/auth-guard.service';
 import { FindProductsByNameComponent } from './user/find-products-by-name/find-products-by-name.component';
 import { UnauthorizedComponent } from './user/unauthorized/unauthorized.component';
 import { CheckoutComponent } from './user/checkout/checkout.component';
+import { CompleteComponent } from './user/complete/complete.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
         component: FindProductsByNameComponent,
       },
       { path: 'unauthorized', component: UnauthorizedComponent },
+      {path:'complete',component:CompleteComponent}
     ],
   },
   {

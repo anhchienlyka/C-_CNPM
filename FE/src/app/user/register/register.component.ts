@@ -12,8 +12,11 @@ export class RegisterComponent implements OnInit {
 
   registerForm = new FormGroup({
     email: new FormControl('',[Validators.email, Validators.required]),
-    username: new FormControl('',[Validators.minLength(10), Validators.required]),
+    username: new FormControl('',[Validators.minLength(5), Validators.required]),
     password: new FormControl('',[Validators.minLength(8), Validators.required]),
+    fullname:new FormControl('',[Validators.required]),
+    address: new FormControl('',Validators.required),
+    phoneNumber:new FormControl('',Validators.required)
   })
   message: string = "";
   thang: string = "";
@@ -27,6 +30,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
+    console.log('chien',this.registerForm.value)
     this.authenticaionService.register(this.registerForm.value).subscribe(res=>{
       var response = JSON.parse(res);
       console.log(response);
@@ -51,5 +55,21 @@ export class RegisterComponent implements OnInit {
   get password(){
     return this.registerForm.get('password');
   }
+
+  get fullname()
+  {
+    return this.registerForm.get('fullname');
+  }
+
+  get address()
+  {
+    return this.registerForm.get('address');
+  }
+
+  get phone()
+  {
+    return this.registerForm.get('phoneNumber');
+  }
+
 }
 

@@ -32,6 +32,7 @@ export class AuthenticationService {
   }
 
   register(formData: any){
+    console.log('formDataaaaa',formData)
     var option={
       header: new HttpHeaders({
         'Content-Type':'application/json'
@@ -53,6 +54,9 @@ export class AuthenticationService {
       user.email = data?.email;
       user.username = data?.username;
       user.role = data?.role;
+      user.phoneNumber = data.phoneNumber;
+      user.adrress= data.address;
+      user.phoneNumber= data.fullName;
       return user;
     }
     return null;

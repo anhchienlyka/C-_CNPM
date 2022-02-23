@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -18,22 +19,20 @@ namespace Wallme_API.Services.UserService
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IConfiguration _configuration;
+        private readonly IMapper _mapper;
 
-        public UserService(UserManager<User> userManager, SignInManager<User> signInManager, IConfiguration configuration)
+        public UserService(UserManager<User> userManager, SignInManager<User> signInManager, IConfiguration configuration,IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
+            _mapper = mapper;
         }
         public async Task<IdentityCustomResult> CreateAsync(CreateUserVM request)
         {
             try
             {
-                var user = new User()
-                {
-                    UserName = request.UserName,
-                    Email = request.Email,
-                };
+                var user = _mapper.Map<User>(request);
                 var result = await _userManager.CreateAsync(user, request.Password);
                 if (result.Succeeded)
                 {
@@ -43,7 +42,7 @@ namespace Wallme_API.Services.UserService
 
             }catch(Exception ex)
             {
-                throw;
+                throw ;
             }
         }
 

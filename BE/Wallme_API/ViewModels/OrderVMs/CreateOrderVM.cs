@@ -10,8 +10,6 @@ namespace Wallme_API.ViewModels.OrderVMs
 {
     public class CreateOrderVM
     {
-        public int Id { get; set; }
-
         public int UserId { get; set; }
 
         public DateTime OrderDate { get; set; }

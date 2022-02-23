@@ -17,11 +17,10 @@ namespace Wallme_API.Models
         public Category Category { get; set; }
 
         public int CategoryId { get; set; }
-
         public string Description { get; set; }
 
         public ICollection<Product_Image> ProductImages { get; set; }
-        public ICollection<Order_Item> OrderItems { get; set; }
+        public ICollection<OrderDetail>  OrderDetails { get; set; }
         public ICollection<Comment>  Comments { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Wallme_API.Models
 {
-    public class Order_Item
+    public class OrderDetail
     {
         public Order Order { get; set; }
 

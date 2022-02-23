@@ -42,9 +42,7 @@ namespace Wallme_API.Controllers
         public async Task<IActionResult> Register(CreateUserVM createUserVM)
         {
             var result = await _userService.CreateAsync(createUserVM);
-            //var existUser = await _userManager.FindByEmailAsync(createUserVM.Email);
-            //await _userManager.AddToRoleAsync(existUser, "user");
-            var demo = await _userService.RoleAssignAsync(createUserVM.UserName, "user");
+            await _userService.RoleAssignAsync(createUserVM.UserName, "user");
             return Ok(result);
         }
 

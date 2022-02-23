@@ -22,7 +22,7 @@ namespace Wallme_API.Data
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Order { get; set; }
-        public DbSet<Order_Item> OrderItems { get; set; }
+        public DbSet<OrderDetail>  OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Product_Image> ProductImages { get; set; }
 
@@ -54,16 +54,16 @@ namespace Wallme_API.Data
                         .HasForeignKey(x => x.UserId);
             });
 
-            modelBuilder.Entity<Order_Item>(orderitem =>
+            modelBuilder.Entity<OrderDetail>(orderitem =>
             {
                 orderitem.HasKey(x => new { x.OrderId, x.ProductId });
 
                 orderitem.HasOne(x => x.Order)
-                            .WithMany(x => x.OrderItems)
+                            .WithMany(x => x.OrderDetails)
                             .HasForeignKey(x => x.OrderId);
 
                 orderitem.HasOne(x => x.Product)
-                            .WithMany(x => x.OrderItems)
+                            .WithMany(x => x.OrderDetails)
                             .HasForeignKey(x => x.ProductId);
             });
 
