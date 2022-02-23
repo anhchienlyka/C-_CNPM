@@ -58,6 +58,9 @@ namespace Wallme_API.Services.UserService
                  new Claim("email",user.Email),
                  new Claim("userId",user.Id.ToString()),
                  new Claim("username",user.UserName),
+                 new Claim("phoneNumber",user.PhoneNumber),
+                 new Claim("address",user.Address),
+                 new Claim("fullname",user.FullName)
                  };
                 foreach (var role in roles) 
                     claims.Add(new Claim("role", role));

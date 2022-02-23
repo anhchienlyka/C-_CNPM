@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Wallme_API.ViewModels.OrderItemVMs
+namespace Wallme_API.ViewModels.OrderDetailVMs
 {
-    public class CreateOrderItemVM
+    public class CreateOrderDetailVM
     {
         public int OrderId { get; set; }
 

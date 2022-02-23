@@ -42,26 +42,7 @@ namespace Wallme_API
                 options.LogTo(Console.WriteLine);
             });
             services.AddControllers();
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Wallme_API", Version = "v1" });
-            //});
-
-            //services.AddCors(c =>
-            //{
-            //    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
-            //});
-
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("AllOrigins",
-            //        builder =>
-            //        {
-            //            builder.AllowAnyHeader()
-            //                           .AllowAnyOrigin()
-            //                          .AllowAnyMethod();
-            //        });
-            //});
+          
             services.AddCors();
 
             services.AddIdentity<User, Role>(option =>

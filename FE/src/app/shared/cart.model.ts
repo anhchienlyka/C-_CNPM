@@ -7,3 +7,9 @@ export interface ProductOrder{
     sale: number,
     quantity: number,
 }
+
+export interface ProductInOrderToPost{
+    productId: number,
+    quantity: number,
+    price: number,
+}

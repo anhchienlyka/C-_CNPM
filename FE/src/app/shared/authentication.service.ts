@@ -55,8 +55,8 @@ export class AuthenticationService {
       user.username = data?.username;
       user.role = data?.role;
       user.phoneNumber = data.phoneNumber;
-      user.adrress= data.address;
-      user.phoneNumber= data.fullName;
+      user.address= data.address;
+      user.fullname= data.fullname;
       return user;
     }
     return null;

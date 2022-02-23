@@ -1,13 +1,14 @@
 import { DecimalPipe } from "@angular/common";
-import { orderDetail } from "./orderDetail.model";
+import { OrderDetail } from "./orderDetail.model";
 
 
-export interface order{
-    id:number
+
+export interface Order{
+    // id:number
     userId: number,
-    orderDate: Date,
+    orderDate: string,
     totalPrice: number,
     status: number,
     payment: boolean,
-    orderDetails:orderDetail
+    orderDetails:OrderDetail[]
 }

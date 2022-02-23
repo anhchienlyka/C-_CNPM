@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Wallme_API.Constraint;
 using Wallme_API.Models;
-using Wallme_API.ViewModels.OrderItemVMs;
+using Wallme_API.ViewModels.OrderDetailVMs;
 
 namespace Wallme_API.ViewModels.OrderVMs
 {
@@ -16,12 +16,11 @@ namespace Wallme_API.ViewModels.OrderVMs
 
         public decimal TotalPrice { get; set; }
 
-        public string Address { get; set; }
 
         public OrderStatus Status { get; set; }
 
         public bool Payment { get; set; }
 
-        public ICollection<CreateOrderItemVM> OrderItems { get; set; }
+        public ICollection<CreateOrderDetailVM> OrderDetails { get; set; }
     }
 }
