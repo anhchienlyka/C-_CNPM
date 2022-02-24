@@ -5,6 +5,7 @@ import { ProductOrder } from 'src/app/shared/cart.model';
 import { CartService } from 'src/app/shared/cart.service';
 import { Order } from 'src/app/shared/order.model';
 import { OrderService } from 'src/app/shared/order.service';
+import { OrderDetail } from 'src/app/shared/orderDetail.model';
 import { User } from 'src/app/shared/user.model';
 
 @Component({
@@ -18,16 +19,19 @@ export class CheckoutComponent implements OnInit {
   quantity: any; 
   total_price:number;
   totalCost: number;
-  productsInOrder: ProductInOrderToPost[];
+  orderDetailsInOrder: OrderDetail[] = [];
   constructor(private authenticationService: AuthenticationService,private cartService: CartService, private orderService:OrderService) {}
-
+  tesst : any;
   ngOnInit(): void {
     this.getCurrentUser();
-    console.log('usserrrrrr', this.currentUser);
-    this.checkoutAccount();
+    //this.checkoutAccount();
     this.productsInCart = this.cartService.getProductInCart();
     this.total_price = this.totalPrice;
     this.totalCost = this.total_price+30000;
+    this.tesst = this.getaaaa();
+    console.log("chiennnnnnnn",this.productsInCart )
+    this.transfer();
+    this.onSubmit()
   }
 
   currentUserForm = new FormGroup({
@@ -55,20 +59,41 @@ export class CheckoutComponent implements OnInit {
   }
 
   transfer(){
-    for(let i=0;i<this.productsInCart.length;i++){
-      let product:
-      this.productsInOrder.
+    for(let i = 0 ; i< this.productsInCart.length; i++ ){
+      let object1:OrderDetail = {
+        orderId: 0,
+        productId: 0,
+        price: 0,
+        total_Price: 0
+      }
+      object1.productId = this.productsInCart[i].productId;
+      object1.price = this.productsInCart[i].price;
+      object1.total_Price = 0;
+      this.orderDetailsInOrder.push(object1)
     }
+    console.log(this.orderDetailsInOrder)
+   
+
+   
   }
 
   onSubmit(){
+    let newDate = new Date();
     var order: Order ={
-      userId : this.currentUser.id,
-      orderDate : "2022-02-23",
-      orderDetails :
-
+      userId: this.currentUser.id,
+      orderDate: newDate.toISOString(),
+      orderDetails: this.orderDetailsInOrder,
+      totalPrice: this.totalCost,
+      status: 0,
+      payment: false
     };
-    this.orderService.addOrder(order).subscribe(x=>);
+console.log('orderrrrrrrrrrr',order)
+    //this.orderService.addOrder(order).subscribe();
+  }
+
+  getaaaa(){
+    let data: OrderDetail[] = JSON.parse(localStorage.getItem('wallme-cart'));
+    return data;
   }
   
 }

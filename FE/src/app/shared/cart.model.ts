@@ -8,8 +8,3 @@ export interface ProductOrder{
     quantity: number,
 }
 
-export interface ProductInOrderToPost{
-    productId: number,
-    quantity: number,
-    price: number,
-}
