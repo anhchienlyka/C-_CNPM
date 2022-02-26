@@ -1,74 +1,113 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-2">
-            <div class="flex-shrink-0 p-3 bg-white" style="width: 220px;">
-                <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                  <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-                  <span class="fs-5 fw-semibold">Wallme Admin</span>
-                </a>
-                <ul class="list-unstyled ps-0">
-                  <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#category-collapse" aria-expanded="false">
-                      Category
-                    </button>
-                    <div class="collapse" id="category-collapse">
-                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a [routerLink]="['/admin/category']" class="link-dark rounded">List</a></li>
-                        <li><a [routerLink]="['/admin/category/create']" class="link-dark rounded">Create</a></li>
-                      </ul>
+<main>
+    <div class="wrapper">
+        <nav class="main-header navbar navbar-expand navbar-light mycolor ">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-light toggle-bar" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a [routerLink]="['/admin']" class="nav-link text-light">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a style="cursor: pointer" (click)='logout()' class="nav-link text-light">Signout</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="main-sidebar sidebar-dark-primary elevation-4 mycolor">
+            <a [routerLink]="['/admin']" class="brand-link">
+                <img src="../../assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">Admin Parky</span>
+            </a>
+            <div class="sidebar">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="../../assets/img/avatar.png" class="img-circle elevation-2" alt="User Image">
                     </div>
-                  </li>
-                  <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#product-collapse" aria-expanded="false">
-                      Product
-                    </button>
-                    <div class="collapse" id="product-collapse">
-                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a [routerLink]="['/admin/product']" class="link-dark rounded">List</a></li>
-                        <li><a [routerLink]="['/admin/product/create']" class="link-dark rounded">Create</a></li>
-                      </ul>
+                    <div class="info">
+                        <a routerLink="/admin" class="d-block">Welcome Admin !</a>
                     </div>
-                  </li>
-                  <!-- <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#order-collapse" aria-expanded="false">
-                      Order
-                    </button>
-                    <div class="collapse" id="order-collapse">
-                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark rounded">Overview</a></li>
-                        <li><a href="#" class="link-dark rounded">Weekly</a></li>
-                        <li><a href="#" class="link-dark rounded">Monthly</a></li>
-                        <li><a href="#" class="link-dark rounded">Annually</a></li>
-                      </ul>
+                </div>
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item has-treeview">
+                            <a class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    National Park
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a routerLink="national-parks/create" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Create New</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="national-parks" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Index</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a class="nav-link">
+                                <i class="nav-icon fas fa-tree"></i>
+                                <p>
+                                    Trail
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a routerLink="trails/create" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Create New</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="trails" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Index</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <!-- <li class="breadcrumb-item" *ngFor="let route of routeList; let i = index;"><a [href]="getHrefRoute(i)">{{route}}</a></li> -->
+                            </ol>
+                        </div>
                     </div>
-                  </li> -->
-                  <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#user-collapse" aria-expanded="false">
-                      User
-                    </button>
-                    <div class="collapse" id="user-collapse">
-                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a [routerLink]="['/admin/user']" routerLinkActive="router-link-active"  class="link-dark rounded">List</a></li>
-                      </ul>
+                </div>
+            </section>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <router-outlet></router-outlet>
                     </div>
-                  </li>
-                  <li class="border-top my-3"></li>
-                  <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                      Account
-                    </button>
-                    <div class="collapse" id="account-collapse">
-                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="link-dark rounded" (click)="logout()">Log out</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                </div>
+            </section>
         </div>
-        <div class="col-10">
-            <router-outlet></router-outlet>
-        </div>
+        <footer class="main-footer mycolor" style="opacity: .8;">
+            <!-- <div class="float-right d-none d-sm-block">
+              <b>Version</b> 3.0.5
+          </div> -->
+            <strong>Copyright &copy; 2021 Fresher Academy</strong> All rights reserved.
+        </footer>
+        <!-- <aside class="control-sidebar control-sidebar-dark">
+      </aside> -->
     </div>
-</div>
-
+</main>

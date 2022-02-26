@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PCC\\Desktop\\C-_CNPM\\BE\\Wallme_API\\Wallme_API.csproj": {}
+    "C:\\Users\\chien\\Desktop\\C-_CNPM\\BE\\Wallme_API\\Wallme_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PCC\\Desktop\\C-_CNPM\\BE\\Wallme_API\\Wallme_API.csproj": {
+    "C:\\Users\\chien\\Desktop\\C-_CNPM\\BE\\Wallme_API\\Wallme_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PCC\\Desktop\\C-_CNPM\\BE\\Wallme_API\\Wallme_API.csproj",
+        "projectUniqueName": "C:\\Users\\chien\\Desktop\\C-_CNPM\\BE\\Wallme_API\\Wallme_API.csproj",
         "projectName": "Wallme_API",
-        "projectPath": "C:\\Users\\PCC\\Desktop\\C-_CNPM\\BE\\Wallme_API\\Wallme_API.csproj",
-        "packagesPath": "C:\\Users\\PCC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PCC\\Desktop\\C-_CNPM\\BE\\Wallme_API\\obj\\",
+        "projectPath": "C:\\Users\\chien\\Desktop\\C-_CNPM\\BE\\Wallme_API\\Wallme_API.csproj",
+        "packagesPath": "C:\\Users\\chien\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chien\\Desktop\\C-_CNPM\\BE\\Wallme_API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PCC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\chien\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }
