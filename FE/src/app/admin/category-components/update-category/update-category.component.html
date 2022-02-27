@@ -2,7 +2,7 @@
 <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
         <label for="id" class="form-label">Id</label>
-        <input class="form-control" id="id" formControlName="id">
+        <input class="form-control" id="id" hidden formControlName="id">
     </div>
     <div class="mb-3">
         <label for="name" class="form-label">Name</label>

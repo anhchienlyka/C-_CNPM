@@ -21,15 +21,12 @@ export class CheckoutComponent implements OnInit {
   totalCost: number;
   orderDetailsInOrder: OrderDetail[] = [];
   constructor(private authenticationService: AuthenticationService,private cartService: CartService, private orderService:OrderService) {}
-  tesst : any;
-  ngOnInit(): void {
+  tesst : any;  ngOnInit(): void {
     this.getCurrentUser();
-    //this.checkoutAccount();
     this.productsInCart = this.cartService.getProductInCart();
     this.total_price = this.totalPrice;
     this.totalCost = this.total_price+30000;
-    this.tesst = this.getaaaa();
-    console.log("chiennnnnnnn",this.productsInCart )
+   this.checkoutAccount();
     this.transfer();
     this.onSubmit()
   }
@@ -71,10 +68,8 @@ export class CheckoutComponent implements OnInit {
       object1.total_Price = 0;
       this.orderDetailsInOrder.push(object1)
     }
-    console.log(this.orderDetailsInOrder)
-   
 
-   
+    // console.log(this.orderDetailsInOrder)
   }
 
   onSubmit(){
@@ -87,13 +82,15 @@ export class CheckoutComponent implements OnInit {
       status: 0,
       payment: false
     };
-console.log('orderrrrrrrrrrr',order)
-    //this.orderService.addOrder(order).subscribe();
+    this.orderService.addOrder(order).subscribe();
+    let data: string = JSON.stringify(order);
+    console.log(data);
+    console.log("alo");
   }
 
-  getaaaa(){
-    let data: OrderDetail[] = JSON.parse(localStorage.getItem('wallme-cart'));
-    return data;
-  }
+  // getaaaa(){
+  //   let data: OrderDetail[] = JSON.parse(localStorage.getItem('wallme-cart'));
+  //   return data;
+  // }
   
 }

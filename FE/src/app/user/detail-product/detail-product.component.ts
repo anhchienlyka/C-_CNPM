@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { NotificationService } from 'src/app/notification/notification.service';
 import { ProductOrder } from 'src/app/shared/cart.model';
 import { CartService } from 'src/app/shared/cart.service';
-import { ProductImageService } from 'src/app/shared/product-image.service';
-import { Product, ProductImage } from 'src/app/shared/product.model';
+import { Product } from 'src/app/shared/product.model';
 import { ProductService } from 'src/app/shared/product.service';
 import { environment } from 'src/environments/environment';
 import { Cart } from '../cart/cart.component';
@@ -17,17 +17,18 @@ import { Cart } from '../cart/cart.component';
 export class DetailProductComponent implements OnInit {
 
   coutProduct:number=0;
-  product: Product;
+  product: Product ;
   productId: any;
-  images!: ProductImage[];
-  imageUrl = environment.imageUrl;
   quantity: number = 1;
+  sanitizer: DomSanitizer;
   constructor(private productService: ProductService, 
     private route: ActivatedRoute, 
-    private productImageService: ProductImageService, 
     private cartService: CartService,
+    sanitizer: DomSanitizer,
     private notifyService : NotificationService
-    ) { }
+    ) { 
+      this.sanitizer = sanitizer;
+    }
 
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('id');
@@ -37,8 +38,8 @@ export class DetailProductComponent implements OnInit {
   getProductById(id: number){
     this.productService.getProductById(id).subscribe(res=>{
       this.product = res.body;
-      this.images = this.product.productImages;  
-      console.log("imggggg",this.images)
+      console.log("productdetail",this.product)
+      
     })
   }
   showToasterWarning(){
@@ -53,12 +54,12 @@ export class DetailProductComponent implements OnInit {
       return;
     }
     let productOrder: ProductOrder = {
-      imagePath: '',
       price: product.price,
       productId: product.id,
       productName: product.name,
       quantity: this.quantity,
-      sale: product.sale
+      sale: product.sale,
+      picture:product.picture
     }; 
     this.cartService.addToCart(productOrder);
     Cart.callBack.emit();

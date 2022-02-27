@@ -239,6 +239,9 @@ namespace Wallme_API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Picture")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -250,29 +253,6 @@ namespace Wallme_API.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Wallme_API.Models.Product_Image", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Index")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductImages");
                 });
 
             modelBuilder.Entity("Wallme_API.Models.Role", b =>
@@ -480,17 +460,6 @@ namespace Wallme_API.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Wallme_API.Models.Product_Image", b =>
-                {
-                    b.HasOne("Wallme_API.Models.Product", "Product")
-                        .WithMany("ProductImages")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("Wallme_API.Models.Category", b =>
                 {
                     b.Navigation("Products");
@@ -506,8 +475,6 @@ namespace Wallme_API.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("OrderDetails");
-
-                    b.Navigation("ProductImages");
                 });
 
             modelBuilder.Entity("Wallme_API.Models.User", b =>

@@ -17,7 +17,11 @@ export class ProductService {
   getProducts(pageIndex: number, pageSize: number):Observable<HttpResponse<Product[]>>{
     return this.httpClient.get<Product[]>(this.apiUrl+`product?pageindex=${pageIndex}&pagesize=${pageSize}`,{observe: 'response'});
   }
+  //https://localhost:44392/Product/GetAllProducts
 
+  GetAllProducts():Observable<HttpResponse<Product[]>>{
+    return this.httpClient.get<Product[]>(this.apiUrl+`Product/GetAllProducts`,{observe: 'response'});
+  }
   getProductById(id: number){
     var url = this.apiUrl + `product/${id}`;
     return this.httpClient.get<Product>(url,{observe: 'response'});
@@ -32,12 +36,27 @@ export class ProductService {
     var url = this.apiUrl + 'product';
     var data = JSON.stringify(product);
     var options = {
+      observe: 'response' as const,
       headers: new HttpHeaders({
         'Content-Type':'application/json'
       })
     };
     return this.httpClient.post(url,data,options);
   }
+
+updateProduct(formData: Product)
+{
+  var url = this.apiUrl + 'product';
+  var options = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+    observe: 'response' as const,
+  };
+  return this.httpClient.put(url , formData, options);
+}
+
+
 
   findProductsByName(name: string){
     var url = this.apiUrl + `Product/FindProductByName?name=${name}`;
@@ -47,7 +66,9 @@ export class ProductService {
   // https://localhost:44392/Product?id=12
   deleteProduct(id: number){
     var url = this.apiUrl+`product?id=${id}`;
-    return this.httpClient.delete(url);
+    return this.httpClient.delete(url,{
+      observe: 'response',
+    });
   }
 
 }

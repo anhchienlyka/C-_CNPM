@@ -12,7 +12,6 @@ namespace Wallme_API.Infrastructures
 
         IOrderRepository OrderRepository { get; }
 
-        IProductImageRepository ProductImageRepository { get; }
 
         IOrderDetailRepository OrderDetailRepository { get; }
         WallmeDbContext WallmeDbContext { get; }

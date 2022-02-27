@@ -1,8 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification/notification.service';
 import { CategoryService } from 'src/app/shared/category.service';
+import { CreateProduct } from 'src/app/shared/product.model';
 import { ProductService } from 'src/app/shared/product.service';
 
 @Component({
@@ -13,8 +16,9 @@ import { ProductService } from 'src/app/shared/product.service';
 export class CreateProductComponent implements OnInit {
 
   categories: any;
-  images = [];
-
+  imgbase64: string = '';
+  url: any;
+  sanitizer: DomSanitizer;
   productForm = new FormGroup({
     name: new FormControl('',[Validators.required]),
     price: new FormControl('',[Validators.required]),
@@ -23,13 +27,19 @@ export class CreateProductComponent implements OnInit {
     categoryId: new FormControl('',[Validators.required,Validators.min(0)]),
     description: new FormControl('',[Validators.required]),
     // file: new FormControl(),
-    fileSource: new FormControl(),
+    picture: new FormControl(),
   });
+
   constructor(
     private productService: ProductService, 
     private categoryService: CategoryService, 
     private httpClient: HttpClient,
-    private router: Router) { }
+    private router: Router,
+    sanitizer: DomSanitizer,
+    private notificationService : NotificationService) {
+
+      this.sanitizer = sanitizer;
+     }
 
   ngOnInit(): void {
     this.getCategories();
@@ -39,10 +49,27 @@ export class CreateProductComponent implements OnInit {
   }
 
   submit(){
-    this.productService.createProduct(this.productForm.value).subscribe(res=>{
-      console.log(res);
+    let model: CreateProduct = this.productForm.value;
+    if(!this.productForm.invalid){
+      if (this.imgbase64 != '') {
+        model.picture = this.imgbase64;
+      }
+      else {
+        model.picture = this.getDefaultImageData() as string;
+      }
+    this.productService.createProduct(model).subscribe(res=>{
       this.router.navigateByUrl('admin/product')
+      if (res.status === HttpStatusCode.Ok) {
+        this.notificationService.showInfo('Success', 'Created is Successfully');
+        this.router.navigateByUrl('admin/product')
+      } else {
+        this.notificationService.showError('Error', 'Created is Fail');
+      }
     })
+  }
+  else{
+    this.notificationService.showWarning("Warning","Please Full Fill The Form");
+  }
   }
 
   getCategories(){
@@ -51,26 +78,36 @@ export class CreateProductComponent implements OnInit {
     })
   }
 
-  onFileChange(event){
-    console.log(event);
-    if(event.target.files && event.target.files[0]){
-      var fileAmount = event.target.files.length;
-      for(let i=0; i< fileAmount; i++){
-        var reader = new FileReader();
-        reader.onload = (event:any)=>{
-          // console.log(event.target.result);
-          this.images.push(event.target.result);
-
-          this.productForm.patchValue({
-            fileSource: this.images
-          });
+  onFileChange(event: any) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsBinaryString(file);
+      reader.onload = (event) => {
+        let binaryString = event.target?.result as string;
+        if (binaryString) {
+          this.imgbase64 = btoa(binaryString);
+          this.url = this.imgbase64;
         }
-        reader.readAsDataURL(event.target.files[i])
-      }
+      };
     }
   }
-  removeImage(indexImage: number){
-    this.images.splice(indexImage,1);
+
+
+  getDefaultImageData() {
+    let img = document.getElementById("default-img") as HTMLImageElement;
+    let canvas: HTMLCanvasElement = document.createElement('canvas');
+    canvas.width = img.naturalWidth as number;
+    canvas.height = img.naturalHeight as number;
+    let ctx = canvas.getContext("2d");
+    if (ctx) {
+      ctx.drawImage(img, 0, 0);
+      let dataURL = canvas.toDataURL("image/png");
+      let data = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+      console.log(data);
+      return data;
+    }
+    return undefined;
   }
 
   get name(){

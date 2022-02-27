@@ -19,22 +19,22 @@ namespace Wallme_API.Infrastructures.Repositories
 
         public List<Product> FindProductsByName(string name)
         {
-            return context.Products.Where(x => x.Name.Contains(name)).Include(x=>x.ProductImages).ToList();
+            return context.Products.Where(x => x.Name.Contains(name)).ToList();
         }
 
         public IQueryable<Product> GetAllProducts()
         {
-            return context.Products.Include(x => x.ProductImages).AsQueryable();
+            return context.Products.AsQueryable();
         }
 
         public Product GetProductById(int id)
         {
-            return context.Products.Where(x => x.Id == id).Include(x => x.ProductImages).FirstOrDefault();
+            return context.Products.Where(x => x.Id == id).FirstOrDefault();
         }
 
         public List<Product> GetProductsByCategoryId(int id)
         {
-            return context.Products.Where(x => x.CategoryId == id).Include(x=>x.ProductImages).ToList();
+            return context.Products.Where(x => x.CategoryId == id).ToList();
         }
 
 

@@ -14,7 +14,6 @@ namespace Wallme_API.Infrastructures
         private ICategoryRepository categoryRepository;
         private IProductRepository productRepository;
         private IOrderRepository orderRepository;
-        private IProductImageRepository productImageRepository;
         private IOrderDetailRepository orderDetailRepository;
         public UnitOfWork(WallmeDbContext context)
         {
@@ -23,8 +22,6 @@ namespace Wallme_API.Infrastructures
         public ICategoryRepository CategoryRepository => this.categoryRepository ??= new CategoryRepository(_context);
         public IProductRepository ProductRepository => this.productRepository ??= new ProductRepository(_context);
         public IOrderRepository OrderRepository => this.orderRepository ??= new OrderRepository(_context);
-
-        public IProductImageRepository ProductImageRepository => this.productImageRepository ??= new ProductImageRepository(_context);
 
 
         public WallmeDbContext WallmeDbContext => _context;

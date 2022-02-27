@@ -5,6 +5,7 @@
                 <tr>
                     <th>STT</th>
                     <th>Sản phẩm</th>
+                    <th>Hình ảnh</th>
                     <th>Đơn giá</th>
                     <th>Giảm giá</th>
                     <th>Số lượng</th>
@@ -16,6 +17,7 @@
                 <tr *ngFor="let item of productsInCart; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{item.productName}}</td>
+                    <td><img [src]="sanitizer.bypassSecurityTrustUrl('data:image/png;base64,'+item.picture) " width="100% " height="100% " alt=" "></td>
                     <td>{{item.price | currency: "VND"}}</td>
                     <td>{{item.sale}}%</td>
                     <td><input type="number" [(ngModel)]="item.quantity" (change)="updateToLocal(item)"></td>

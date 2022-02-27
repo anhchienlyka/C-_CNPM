@@ -12,6 +12,8 @@ import { TokenIntercepterService } from './shared/token-intercepter.service';
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,9 @@ import { ToastrModule } from 'ngx-toastr';
     AdminModule,
     HttpClientModule,
     UserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgxPaginationModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],

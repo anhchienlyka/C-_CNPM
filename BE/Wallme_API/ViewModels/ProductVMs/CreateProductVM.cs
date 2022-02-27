@@ -18,9 +18,6 @@ namespace Wallme_API.ViewModels.ProductVMs
         public int CategoryId { get; set; }
 
         public string Description { get; set; }
-
-        //public string file { get; set; }
-
-        public string[] fileSource { get; set; }
+        public byte[] Picture { get; set; }
     }
 }

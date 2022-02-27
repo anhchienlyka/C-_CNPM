@@ -24,7 +24,6 @@ namespace Wallme_API.Data
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderDetail>  OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Product_Image> ProductImages { get; set; }
 
         public DbSet <Comment> Comments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -82,14 +81,6 @@ namespace Wallme_API.Data
                 commnet.HasOne(x => x.Product)
                         .WithMany(x => x.Comments)
                         .HasForeignKey(x => x.ProductId);
-            });
-            modelBuilder.Entity<Product_Image>(productimage =>
-            {
-                productimage.HasKey(x => x.Id);
-
-                productimage.HasOne(x => x.Product)
-                            .WithMany(x => x.ProductImages)
-                            .HasForeignKey(x => x.ProductId);
             });
 
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())

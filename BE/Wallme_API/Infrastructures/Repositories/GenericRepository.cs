@@ -34,10 +34,8 @@ namespace Wallme_API.Infrastructures.Repositories
         }
 
         public IQueryable<TEntity> GetAll()
-        {
-            //return this.Dbset.AsEnumerable().Skip(1).Take(2);
+        {     
             return this.Dbset.AsQueryable();
-            //return this.Dbset.AsQueryable().Skip(1).Take(2);
         }
 
         public TEntity GetById(int id)

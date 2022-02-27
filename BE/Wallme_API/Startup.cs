@@ -17,8 +17,6 @@ using Wallme_API.Infrastructures;
 using Wallme_API.Infrastructures.IRepositories;
 using Wallme_API.Infrastructures.Repositories;
 using Wallme_API.Models;
-using Wallme_API.Services.ImageService;
-using Wallme_API.Services.ProductImageService;
 using Wallme_API.Services.UserService;
 using Wallme_API.ViewModels.AutoMappers;
 
@@ -127,8 +125,6 @@ namespace Wallme_API
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<IUserService, UserService>();
-            services.AddTransient<IImageService, ImageService>();
-            services.AddTransient<IProductImageService, ProductImageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

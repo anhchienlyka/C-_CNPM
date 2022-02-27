@@ -5,11 +5,9 @@
             <div id="carouselExampleControls" class="carousel images" data-bs-ride="carousel" >
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img src="{{images?.[0].imagePath}}" class="d-block w-100" alt="...">
+                    <img [src]="sanitizer.bypassSecurityTrustUrl('data:image/png;base64,'+product?.picture)" class="d-block w-100" alt="...">
                     </div>
-                    <div class="carousel-item" *ngFor="let item of images | slice:1">
-                    <img src="{{item?.imagePath}}" class="d-block w-100" alt="...">
-                    </div>
+                 
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -30,7 +28,8 @@
             <span>Kho: {{product?.inventory}}</span>
                 <input type="number" class="form-control mt-3" id="qty" [(ngModel)]="quantity">
                 <button class="btn btn-primary mt-3" (click)="addToCart(product)">ADD TO CART<i class="fas fa-shopping-cart"></i></button>
-            <p id="description"> &nbsp;&nbsp;&nbsp;&nbsp;{{product?.description}}</p>
+                <br>
+            <p id="description" [innerHTML]="product?.description" > &nbsp;&nbsp;&nbsp;&nbsp; </p>
         </div>
         <div class="col-1"></div>
     </div>

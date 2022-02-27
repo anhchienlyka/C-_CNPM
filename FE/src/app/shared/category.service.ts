@@ -7,11 +7,12 @@ import { Category, CreateCategory } from './category.model';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class CategoryService   {
 
   private apiUrl = environment.apiUrl;
   
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {;
+   }
 
 
   getCategories():Observable<HttpResponse<Category[]>>{
@@ -20,9 +21,9 @@ export class CategoryService {
 
   addCategory(category: CreateCategory){
     var data = JSON.stringify(category);
-    console.log(data);
     var url = this.apiUrl+'category';
     var options = {
+        observe: 'response' as const,
           headers: new HttpHeaders({
             'Content-Type': 'application/json'
           })
@@ -34,6 +35,7 @@ export class CategoryService {
     var data = JSON.stringify(category);
     var url = this.apiUrl + 'category';
     var options ={
+      observe: 'response' as const,
       headers: new HttpHeaders({
         'Content-Type':'application/json'
       })
@@ -49,6 +51,8 @@ export class CategoryService {
   
   deleteCategory(id: number){
     var url = this.apiUrl+`category/${id}`;
-    return this.httpClient.delete(url);
+    return this.httpClient.delete(url,{
+      observe :'response'
+    });
   }
 }

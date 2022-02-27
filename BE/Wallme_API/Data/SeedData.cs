@@ -154,65 +154,7 @@ namespace Wallme_API.Data
                 },
             };
             _context.Products.AddRange(products);
-            List<Product_Image> productImages = new List<Product_Image>()
-            {
-                new Product_Image()
-                {
-                    ImagePath = "https://binhminhdigital.com/storedata/images/product/canon-eos-1500d-kit-1855mm-f3556-iii(2).jpg",
-                    Product = products[0],
-                },
-                new Product_Image()
-                {
-                    ImagePath = "https://binhminhdigital.com/storedata/images/product/canon-eos-1500d-kit-1855mm-f3556-iii(2).jpg",
-                    Product = products[1],
-                },
-                new Product_Image()
-                {
-                    ImagePath = "https://zshop.vn/blogs/wp-content/uploads/2019/04/4-e1560154793954.png",
-                    Product = products[2],
-                },
-                new Product_Image()
-                {
-                    ImagePath = "https://zshop.vn/blogs/wp-content/uploads/2019/04/4-e1560154793954.png",
-                    Product = products[3],
-                },
-                new Product_Image()
-                {
-                    ImagePath = "https://zshop.vn/blogs/wp-content/uploads/2019/04/4-e1560154793954.png",
-                    Product = products[4],
-                },
-                new Product_Image()
-                {
-                    ImagePath = "https://zshop.vn/blogs/wp-content/uploads/2019/04/4-e1560154793954.png",
-                    Product = products[5],
-                },
-                new Product_Image()
-                {
-                    ImagePath = "https://cdn.tgdd.vn/Files/2019/07/17/1180058/mayanhcodsrlcuacanon7d.jpg",
-                    Product = products[6],
-                },
-                new Product_Image()
-                {
-                    ImagePath = "https://cdn.tgdd.vn/Files/2019/07/17/1180058/mayanhcodsrlcuacanon7d.jpg",
-                    Product = products[7],
-                },
-                new Product_Image()
-                {
-                    ImagePath = "https://cdn.tgdd.vn/Files/2019/07/17/1180058/mayanhcodsrlcuacanon7d.jpg",
-                    Product = products[8],
-                },
-                new Product_Image()
-                {
-                    ImagePath = "https://cdn.tgdd.vn/Files/2019/07/17/1180058/mayanhcodsrlcuacanon7d.jpgg",
-                    Product = products[9],
-                },
-                new Product_Image()
-                {
-                    ImagePath = "https://cdn.tgdd.vn/Files/2019/07/17/1180058/mayanhcodsrlcuacanon7d.jpg",
-                    Product = products[10],
-                }
-            };      
-            _context.ProductImages.AddRange(productImages);
+            
             _context.SaveChanges();
 
         }

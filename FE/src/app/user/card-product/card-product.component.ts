@@ -1,8 +1,9 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { NotificationService } from 'src/app/notification/notification.service';
 import { ProductOrder } from 'src/app/shared/cart.model';
 import { CartService } from 'src/app/shared/cart.service';
-import { ProductImageService } from 'src/app/shared/product-image.service';
+
 import { Product } from 'src/app/shared/product.model';
 import { environment } from 'src/environments/environment';
 import { Cart } from '../cart/cart.component';
@@ -15,15 +16,18 @@ import { Cart } from '../cart/cart.component';
 export class CardProductComponent implements OnInit {
 
   @Input() product!: Product
-  imagePath: string;
+
   coutProduct:number=0;
-  constructor(private productImageService: ProductImageService,
+  sanitizer: DomSanitizer;
+  constructor(
      private cartService: CartService,
+     domSanitizer: DomSanitizer,
      private notifyService : NotificationService) { 
+      this.sanitizer = domSanitizer;
   }
 
   ngOnInit(): void {
-    this.imagePath = this.product?.productImages[0].imagePath;
+    
   }
   showToasterWarning(){
     this.notifyService.showWarning("Số lượng hàng không đủ", "Thông báo")
@@ -36,7 +40,7 @@ export class CardProductComponent implements OnInit {
       return;
     }
     let productOrder: ProductOrder = {
-      imagePath: '',
+      picture: product.picture,
       price: product.price,
       productId: product.id,
       productName: product.name,

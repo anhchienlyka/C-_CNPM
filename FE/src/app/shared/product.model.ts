@@ -6,14 +6,9 @@ export interface Product{
     inventory: number,
     categoryId: number,
     description: string,
-    productImages: ProductImage[],
+    picture: string,
 }
 
-export interface ProductImage{
-    id: number,
-    imagePath: string,
-    index: number,
-}
 
 export interface CreateProduct{
     name: string,
@@ -22,4 +17,5 @@ export interface CreateProduct{
     inventory: number,
     categoryId: number,
     description: string,
+    picture: string,
 }

@@ -48,7 +48,7 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     canActivate: [AuthGuardService],
     children: [
-      { path: '', component: AdminHomeComponent },
+      { path: '', component: ListCategoryComponent },
       {
         path: 'category',
         children: [

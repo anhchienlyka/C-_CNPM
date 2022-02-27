@@ -10,8 +10,7 @@ using Wallme_API.Constraint;
 using Wallme_API.Infrastructures;
 using Wallme_API.Infrastructures.Repositories;
 using Wallme_API.Models;
-using Wallme_API.Services.ImageService;
-using Wallme_API.Services.ProductImageService;
+
 using Wallme_API.ViewModels.ProductVMs;
 
 namespace Wallme_API.Controllers
@@ -22,15 +21,11 @@ namespace Wallme_API.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly IImageService _imageService;
-        private readonly IProductImageService _productImageService;
         private readonly Paging<Product> productPaging = new Paging<Product>();
-        public ProductController(IUnitOfWork unitOfWork, IMapper mapper, IImageService imageService, IProductImageService productImageService)
+        public ProductController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _imageService = imageService;
-            _productImageService = productImageService;
         }
 
         [HttpGet]
@@ -46,10 +41,21 @@ namespace Wallme_API.Controllers
             {
                 result.Add(_mapper.Map<ProductVM>(product));
             }
-            return result;
+            return result.OrderByDescending(x=>x.Id);
         }
 
-
+        [HttpGet]
+        [Route("GetAllProducts")]
+        public IEnumerable<ProductVM> GetAllProducts()
+        {
+            var sourceIQueryable = _unitOfWork.ProductRepository.GetAll();
+            List<ProductVM> result = new List<ProductVM>();
+            foreach (var product in sourceIQueryable)
+            {
+                result.Add(_mapper.Map<ProductVM>(product));
+            }
+            return result.OrderByDescending(x=>x.Id);
+        }
         [HttpGet]
         [Route("{id}")]
         public ProductVM Details(int id)
@@ -68,7 +74,7 @@ namespace Wallme_API.Controllers
             {
                 result.Add(_mapper.Map<ProductVM>(item));
             }
-            return result;
+            return result.OrderByDescending(x=>x.CategoryId);
         }
 
         [HttpGet]
@@ -81,7 +87,7 @@ namespace Wallme_API.Controllers
             {
                 result.Add(_mapper.Map<ProductVM>(item));
             }
-            return result;
+            return result.OrderByDescending(x=>x.Id);
         }
        
         [HttpPost]
@@ -90,17 +96,7 @@ namespace Wallme_API.Controllers
             Product product = _mapper.Map<Product>(createProductVM);
             _unitOfWork.ProductRepository.Add(product);
             _unitOfWork.SaveChanges();
-            var existProduct = _unitOfWork.ProductRepository.FindProductsByName(createProductVM.Name)[0];
-            //Save image to local static folder
-            for (int i = 0; i < createProductVM.fileSource.Length; i++)
-            {
-                string data = createProductVM.fileSource[i];
-                //string imageName = Directory.GetCurrentDirectory() + _imageService.SaveImage(data);
-                var imagePath = $"{_imageService.SaveImage(data)}";
-                //assign images to product
-                _productImageService.AssignImageToProduct(existProduct.Id, imagePath, i);
-            }
-            
+            var existProduct = _unitOfWork.ProductRepository.FindProductsByName(createProductVM.Name)[0];      
         }
 
         [HttpPut]

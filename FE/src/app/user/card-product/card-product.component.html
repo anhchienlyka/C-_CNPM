@@ -1,6 +1,6 @@
 <div class="card mt-4" style="width: 18rem;">
     <a [routerLink]="['detail', product.id]" routerLinkActive="router-link-active">
-        <img src="{{imagePath}}" class="card-img-top" alt="product_image">
+        <img [src]="sanitizer.bypassSecurityTrustUrl('data:image/png;base64,'+product.picture)" class="card-img-top" alt="product_image">
     </a>
     <div class="card-body">
         <a [routerLink]="['/detail', product.id]" routerLinkActive="router-link-active">

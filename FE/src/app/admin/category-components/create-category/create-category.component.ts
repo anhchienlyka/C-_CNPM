@@ -1,5 +1,8 @@
+import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification/notification.service';
 import { CategoryService } from 'src/app/shared/category.service';
 
 @Component({
@@ -9,7 +12,7 @@ import { CategoryService } from 'src/app/shared/category.service';
 })
 export class CreateCategoryComponent implements OnInit {
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService, private notificationService : NotificationService, private router: Router,) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +23,13 @@ export class CreateCategoryComponent implements OnInit {
 
   onSubmit(){
     this.categoryService.addCategory(this.categoryForm.value).subscribe(res=>{
-      console.log(res);
+      console.log("statusssssss",res.status)
+      if (res.status === HttpStatusCode.Ok) {
+        this.notificationService.showInfo('Success', 'Created is Successfully');
+        this.router.navigateByUrl('/admin/category');
+      } else {
+        this.notificationService.showError('Error', 'Created is Fail');
+      }
     });
   }
 

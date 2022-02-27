@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/notification/notification.service';
 import { CategoryService } from 'src/app/shared/category.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { CategoryService } from 'src/app/shared/category.service';
 export class ListCategoryComponent implements OnInit {
 
   categories: any;
-  constructor(private categoryService: CategoryService) { }
+  p: number = 1;
+  constructor(private categoryService: CategoryService, private notificationService : NotificationService) { }
 
   ngOnInit(): void {
     this.getCategory();
@@ -23,8 +25,13 @@ export class ListCategoryComponent implements OnInit {
 
   deleteCategory(id: number){
     this.categoryService.deleteCategory(id).subscribe(res=>{
-      console.log(res);
-      this.getCategory();
+      console.log("statussss",res.status)
+      if (res.status == 200) {
+        this.notificationService.showSuccess('Success', 'Delete Successfully');
+        this.getCategory();
+      } else {
+        this.notificationService.showError('Error', 'Delete Failed');
+      }
     })
   }
 

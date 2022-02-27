@@ -14,6 +14,8 @@ import { ListUserComponent } from './user-components/list-user/list-user.compone
 import { UpdateUserComponent } from './user-components/update-user/update-user.component';
 import { PaginationComponent } from '../user/pagination/pagination.component';
 import { UserModule } from '../user/user.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { UserModule } from '../user/user.module';
     UpdateCategoryComponent,
     ListProductComponent,
     CreateProductComponent,
+
     UpdateProductComponent,
     ListUserComponent,
     UpdateUserComponent,
@@ -32,6 +35,8 @@ import { UserModule } from '../user/user.module';
     CommonModule,
     RouterModule,
     FormsModule,
+    NgxPaginationModule,
+    CKEditorModule,
     ReactiveFormsModule,
     UserModule,
   ],

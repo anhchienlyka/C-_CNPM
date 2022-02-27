@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { ProductOrder } from 'src/app/shared/cart.model';
 import { CartService } from 'src/app/shared/cart.service';
@@ -12,7 +13,10 @@ export class CartComponent implements OnInit {
 
   productsInCart: ProductOrder[];
   quantity: any;
-  constructor(private cartService: CartService) { }
+  sanitizer: DomSanitizer;
+  constructor(private cartService: CartService,   sanitizer: DomSanitizer) { 
+    this.sanitizer= sanitizer;
+  }
 
   ngOnInit(): void {
     this.productsInCart = this.cartService.getProductInCart();

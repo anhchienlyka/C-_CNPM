@@ -3,7 +3,6 @@ using Wallme_API.Models;
 using Wallme_API.ViewModels.CategorieVMs;
 using Wallme_API.ViewModels.OrderDetailVMs;
 using Wallme_API.ViewModels.OrderVMs;
-using Wallme_API.ViewModels.ProductImageVMs;
 using Wallme_API.ViewModels.ProductVMs;
 using Wallme_API.ViewModels.UserVMs;
 
@@ -28,11 +27,6 @@ namespace Wallme_API.ViewModels.AutoMappers
 
             //OrderItem
             CreateMap<OrderDetail, CreateOrderDetailVM>().ReverseMap();
-
-            //Product Image
-            CreateMap<Product_Image, CreateProductImageVM>().ReverseMap();
-            CreateMap<Product_Image, ProductImageVm>().ReverseMap();
-
             //User
             CreateMap<User, CreateUserVM>().ReverseMap();
             CreateMap<User, UpdateUserVM>().ReverseMap();

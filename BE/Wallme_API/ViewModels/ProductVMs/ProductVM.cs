@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Wallme_API.Models;
-using Wallme_API.ViewModels.ProductImageVMs;
 
 namespace Wallme_API.ViewModels.ProductVMs
 {
@@ -22,7 +21,7 @@ namespace Wallme_API.ViewModels.ProductVMs
         public int CategoryId { get; set; }
 
         public string Description { get; set; }
+        public byte[] Picture { get; set; }
 
-        public ICollection<ProductImageVm> ProductImages { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification/notification.service';
 import { ProductService } from 'src/app/shared/product.service';
 
 @Component({
@@ -13,34 +14,36 @@ export class ListProductComponent implements OnInit {
   pageIndex: number=1;
   pageSize: number=2;
   totalPages: number;
+  p : number = 1;
   url: string = "/admin/product";
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+   private notificationService : NotificationService
+    
+    ) { }
 
   ngOnInit(): void {
-    this.route.queryParamMap.subscribe(params=>{
-      if(params.get('pageIndex')!=null){
-        this.pageIndex = Number(params.get('pageIndex'));
-        this.pageSize = Number(params.get('pageSize'));
-      }
-      this.getProducts();
-    })
+     this.products = this.getProducts();
+     
   }
 
   deleteProduct(id: number){
     this.productService.deleteProduct(id).subscribe(res=>{
-      console.log(res);
-      this.router.navigateByUrl(`admin/product?pageIndex=${this.pageIndex}&pageSize=${this.pageSize}`);
-      this.getProducts();
+      console.log("delete status",res.status);
+      if (res.status == 200) {
+        this.notificationService.showSuccess('Success', 'Delete Successfully');
+        this.getProducts();
+      } else {
+        this.notificationService.showError('Error', 'Delete Failed');
+      }
     });
   }
 
   getProducts(){
-    this.productService.getProducts(this.pageIndex,this.pageSize).subscribe(res=>{
-      this.totalPages = Number(res.headers.get('totalpages'));
-      this.products = res.body;
+    this.productService.GetAllProducts().subscribe(res=>{
+     this.products = res.body;
     })
   }
 
