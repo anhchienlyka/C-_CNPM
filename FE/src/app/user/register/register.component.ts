@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification/notification.service';
 import { AuthenticationService } from 'src/app/shared/authentication.service';
 
 @Component({
@@ -23,7 +24,8 @@ export class RegisterComponent implements OnInit {
   isSuccess: boolean = false;
   constructor(
     private authenticaionService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private notificationSevice: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -36,13 +38,13 @@ export class RegisterComponent implements OnInit {
       console.log(response);
       if(response.isSuccessed==true){
         this.isSuccess = true;
-        this.message = "Đăng kí thành công";
+        this.notificationSevice.showSuccess("Success","Register Successfully");
         this.router.navigateByUrl('/login');
       }else{
         this.isSuccess = false;
       }
       if(response.errors?.[0].code=="DuplicateUserName")
-      this.message = "Username đã tồn tại";
+      this.notificationSevice.showError("Error","UserName Existed");
     });
   }
 
