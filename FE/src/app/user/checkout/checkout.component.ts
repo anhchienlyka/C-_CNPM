@@ -21,11 +21,14 @@ export class CheckoutComponent implements OnInit {
   totalCost: number;
   orderDetailsInOrder: OrderDetail[] = [];
   constructor(private authenticationService: AuthenticationService,private cartService: CartService, private orderService:OrderService) {}
-  tesst : any;  ngOnInit(): void {
+  tesst : any;  
+  
+  
+  ngOnInit(): void {
     this.getCurrentUser();
     this.productsInCart = this.cartService.getProductInCart();
     this.total_price = this.totalPrice;
-    this.totalCost = this.total_price+30000;
+    this.totalCost = this.total_price+50000;
    this.checkoutAccount();
     this.transfer();
     this.onSubmit()

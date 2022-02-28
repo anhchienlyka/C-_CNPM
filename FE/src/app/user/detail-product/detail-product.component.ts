@@ -37,9 +37,7 @@ export class DetailProductComponent implements OnInit {
 
   getProductById(id: number){
     this.productService.getProductById(id).subscribe(res=>{
-      this.product = res.body;
-      console.log("productdetail",this.product)
-      
+      this.product = res.body;  
     })
   }
   showToasterWarning(){

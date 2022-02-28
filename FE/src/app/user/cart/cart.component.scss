@@ -2,7 +2,7 @@ body {
     color: #353535;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    background: #f3f6ff;
+    background: #9095af;;
 }
 
 *,
@@ -14,28 +14,21 @@ body {
 user agent stylesheet div {
     display: block;
 }
-
-body {
-    color: #353535;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    background: #f3f6ff;
-}
-
 .breadcrumb-wrap {
     position: relative;
     width: 100%;
 }
-
 .cart-page {
     position: relative;
-    margin-top: 30px;
+    padding-top: 30px;
+    background: #e6e7ec;
 }
+
 
 .cart-page .cart-page-inner {
     padding: 30px;
     margin-bottom: 30px;
-    background: #ffffff;
+    background: #be2929;
 }
 
 .cart-page .table {
@@ -93,13 +86,14 @@ body {
 }
 
 .cart-page .table input {
-    width: 40px;
+    width: 70px;
     height: 30px;
     font-size: 16px;
     color: #ffffff;
     text-align: center;
     background: #000000;
     border: none;
+    border-radius: 5px;
 }
 
 .cart-page .table button.btn-plus {
@@ -153,5 +147,60 @@ body {
     color: #FF6F61;
     background: #ffffff;
     border: 1px solid #FF6F61;
+    border-radius: 4px;
+}
+.cart-page .cart-summary {
+    position: relative;
+    width: 100%;
+}
+.cart-page .cart-summary .cart-content {
+    padding: 30px;
+    background: #f3f6ff;
+}
+.cart-page .cart-summary .cart-content h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+h1 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 900;
+}
+.cart-page .cart-summary .cart-content p span, .cart-page .cart-summary .cart-content h2 span {
+    float: right;
+}
+.cart-page .cart-summary .cart-content h2 {
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 12px;
+    border-top: 1px solid #dddddd;
+    margin: 0;
+}
+.cart-page .cart-summary .cart-btn button:first-child {
+    margin-right: 25px;
+    color: #FF6F61;
+    background: #ffffff;
+    border: 1px solid #FF6F61;
+}
+
+.cart-page .cart-summary .cart-btn button {
+    margin-top: 15px;
+    width: calc(45% - 15px);
+    height: 50px;
+    padding: 2px 10px;
+    text-align: center;
+    color: #ffffff;
+    background: #FF6F61;
+    border: none;
+    border-radius: 4px;
+}
+.cart-page .cart-summary .cart-btn .cart-a  button {
+    margin-top: 15px;  
+    width: calc(45% - 15px);
+    height: 50px;
+    padding: 2px 10px;
+    text-align: center;
+    color: #ffffff;
+    background: #FF6F61;
+    border: none;
     border-radius: 4px;
 }
