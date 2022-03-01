@@ -4,9 +4,10 @@
     </a>
     <div class="card-body">
         <a [routerLink]="['/detail', product.id]" routerLinkActive="router-link-active">
-            <h5 class="card-title" style="text-decoration: none;">{{product.name}}</h5>
+            <h3 class="card-title" style="text-decoration: none;">{{product.name}}</h3>
         </a>
-        <p class="card-text">{{product.description | slice:0:62}}...</p>
+        <!-- <p class="card-text">{{product.description | slice:0:62}}...</p> -->
+        <p class="card-text" id="description" [innerHTML]="product?.description | slice:0:62" ></p>
         <span id="new-price">{{product?.price*(100-product?.sale)/100 | currency: "VND"}}</span> &nbsp;&nbsp;
         <span *ngIf="product?.sale!=0" id="old-price">{{product?.price | currency: "VND"}}</span> &nbsp; 
         <img *ngIf="product.sale!=0" src="../../../assets/Sale-icon.png" alt="sale icon" id="sale-icon"><br>

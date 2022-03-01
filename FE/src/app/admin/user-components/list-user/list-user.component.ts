@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification/notification.service';
+import { User } from 'src/app/shared/user.model';
 import { UserService } from 'src/app/shared/user.service';
 
 @Component({
@@ -9,10 +11,12 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class ListUserComponent implements OnInit {
 
-  users: any;
+  users: any ;
+  p: number = 1;
   constructor(
     private userService: UserService,
     private router: Router,
+    private notificationService:NotificationService
     ) { }
 
   ngOnInit(): void {
@@ -21,14 +25,14 @@ export class ListUserComponent implements OnInit {
 
   getUsers(){
     return this.userService.getUsers().subscribe(res=>{
+      console.log("ressssssss",res)
       this.users = res;
     })
   }
 
   deleteUser(id: number){
     return this.userService.deleteUser(id).subscribe(res=>{
-      console.log(res);
-      // this.router.navigateByUrl('/admin/user')
+      this.notificationService.showSuccess("Sucssess","Delete User Sucsessfully")
       this.getUsers();
     })
   }

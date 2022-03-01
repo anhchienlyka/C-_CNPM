@@ -31,17 +31,17 @@ namespace Wallme_API.Controllers
         [HttpGet]
         public IEnumerable<ProductVM> GetAll(int pageIndex, int pageSize)
         {
-            var sourceIQueryable = _unitOfWork.ProductRepository.GetAllProducts();
+            var sourceIQueryable = _unitOfWork.ProductRepository.GetAllProducts().OrderByDescending(x=>x.Id);
             var products = productPaging.ToPagedList(sourceIQueryable, pageIndex, pageSize);
             Response.Headers.Add(PagingConstraint.pageIndex, productPaging.PageIndex.ToString());
             Response.Headers.Add(PagingConstraint.pageSize, productPaging.PageSize.ToString());
             Response.Headers.Add(PagingConstraint.totalPages, productPaging.TotalPages.ToString());
             List<ProductVM> result = new List<ProductVM>();
-            foreach(var product in products)
+            foreach (var product in products)
             {
                 result.Add(_mapper.Map<ProductVM>(product));
             }
-            return result.OrderByDescending(x=>x.Id);
+            return result;
         }
 
         [HttpGet]

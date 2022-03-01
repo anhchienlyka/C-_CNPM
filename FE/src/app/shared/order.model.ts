@@ -4,7 +4,7 @@ import { OrderDetail } from "./orderDetail.model";
 
 
 export interface Order{
-    // id:number
+   
     userId: number,
     orderDate: string,
     totalPrice: number,

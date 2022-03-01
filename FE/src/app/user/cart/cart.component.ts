@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { NotificationService } from 'src/app/notification/notification.service';
 import { ProductOrder } from 'src/app/shared/cart.model';
@@ -17,23 +18,23 @@ export class CartComponent implements OnInit {
   productsInCart: ProductOrder[];
   quantity: any;
   sanitizer: DomSanitizer;
-  total_price : number;
   productDetail:Product;
-  totalCost:number
-  constructor(private cartService: CartService,   sanitizer: DomSanitizer, private notificationSevice:NotificationService, private productService:ProductService) { 
+ 
+  constructor(private cartService: CartService, private route:Router,  sanitizer: DomSanitizer, private notificationSevice:NotificationService, private productService:ProductService) { 
     this.sanitizer= sanitizer;
   }
 
   ngOnInit(): void {
     this.productsInCart = this.cartService.getProductInCart();
-    this.total_price = this.totalPrice;
-    this.totalCost = this.total_price+50000;
   }
 
   get totalPrice(): number{
     return this.productsInCart.reduce((acc,cur)=>acc+cur.price*cur.quantity*(100-cur.sale)/100,0);
   }
 
+  get totalCost():number{
+   return this.totalPrice + 50000;
+  }
   updateToLocal(productOrder: ProductOrder){
     this.cartService.updateCart(productOrder);
     this.productsInCart = this.cartService.getProductInCart();
@@ -46,30 +47,25 @@ export class CartComponent implements OnInit {
     Cart.callBack.emit();
   }
 
-
-  getProductById(id: number){
-    this.productService.getProductById(id).subscribe(res=>{
-      this.productDetail = res.body;  
-    })
-  }
   checkNumber()
   {
     var products = this.cartService.getProductInCart();
-    console.log("productttttt",products)
-    if(products!=null){
+    if(products.length>0){
       products.forEach(product => {
-        this.getProductById(product.productId)
-        console.log("productdetaillllllll",this.productDetail)
+        this.productService.getProductById(product.productId).subscribe(res=>{
+          this.productDetail = res.body;  
         if(product.quantity>this.productDetail.inventory)
         {
+          this.route.navigateByUrl('/cart');
           this.notificationSevice.showError("Error","Not enough items in stock")
         }
+        })
       });
-      
+      this.route.navigateByUrl('/cart/checkout');
     }else{
+      this.route.navigateByUrl('/cart');
      this.notificationSevice.showWarning("Warning","Shopping cart is empty")
     }
-
   }
 }
 export class Cart {

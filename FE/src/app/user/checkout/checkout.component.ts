@@ -28,7 +28,7 @@ export class CheckoutComponent implements OnInit {
     this.getCurrentUser();
     this.productsInCart = this.cartService.getProductInCart();
     this.total_price = this.totalPrice;
-    this.totalCost = this.total_price+50000;
+    this.totalCost =  this.totalPrice+50000;
    this.checkoutAccount();
     this.transfer();
     this.onSubmit()
@@ -68,7 +68,7 @@ export class CheckoutComponent implements OnInit {
       }
       object1.productId = this.productsInCart[i].productId;
       object1.price = this.productsInCart[i].price;
-      object1.total_Price = 0;
+      object1.total_Price =this.totalPrice;
       this.orderDetailsInOrder.push(object1)
     }
 
@@ -78,6 +78,7 @@ export class CheckoutComponent implements OnInit {
   onSubmit(){
     let newDate = new Date();
     var order: Order ={
+      
       userId: this.currentUser.id,
       orderDate: newDate.toISOString(),
       orderDetails: this.orderDetailsInOrder,
@@ -87,13 +88,6 @@ export class CheckoutComponent implements OnInit {
     };
     this.orderService.addOrder(order).subscribe();
     let data: string = JSON.stringify(order);
-    console.log(data);
-    console.log("alo");
-  }
 
-  // getaaaa(){
-  //   let data: OrderDetail[] = JSON.parse(localStorage.getItem('wallme-cart'));
-  //   return data;
-  // }
-  
+  }
 }

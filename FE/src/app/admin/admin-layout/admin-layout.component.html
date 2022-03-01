@@ -6,10 +6,11 @@
                     <a class="nav-link text-light toggle-bar" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a [routerLink]="['/admin']" class="nav-link text-light">Home</a>
+                    <a [routerLink]="['/']" class="nav-link text-light">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a style="cursor: pointer" (click)='logout()' class="nav-link text-light">Signout</a>
+                    <a style="cursor: pointer" [routerLink]="['/login']" routerLinkActive="router-link-active" (click)='logout()' class="nav-link text-light">Log out</a>
+                    
                 </li>
             </ul>
             <!-- <div class="form-inline ml-3">
@@ -85,35 +86,42 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- <li class="nav-item has-treeview">
+                        <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                               <i class="nav-icon fas fa-chart-pie"></i>
                               <p>
-                                Product
+                                Users
                                 <i class="right fas fa-angle-left"></i>
                               </p>
                             </a>
-                            <ul class="nav nav-treeview" style="display: block;">
+                            <ul class="nav nav-treeview">
                               <li class="nav-item">
-                                <a href="pages/charts/chartjs.html" class="nav-link">
+                                <a [routerLink]="['/admin/user']" routerLinkActive="router-link-active" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
-                                  <p>ChartJS</p>
+                                  <p>List</p>
                                 </a>
                               </li>
-                              <li class="nav-item">
-                                <a href="pages/charts/flot.html" class="nav-link">
-                                  <i class="far fa-circle nav-icon"></i>
-                                  <p>Flot</p>
-                                </a>
-                              </li>
-                              <li class="nav-item">
-                                <a href="pages/charts/inline.html" class="nav-link">
-                                  <i class="far fa-circle nav-icon"></i>
-                                  <p>Inline</p>
-                                </a>
-                              </li>
+                             
                             </ul>
-                          </li> -->
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-chart-pie"></i>
+                              <p>
+                                Order
+                                <i class="right fas fa-angle-left"></i>
+                              </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                <a [routerLink]="['/admin/order']" routerLinkActive="router-link-active" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>List</p>
+                                </a>
+                              </li>
+                             
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>

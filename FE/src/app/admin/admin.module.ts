@@ -16,6 +16,8 @@ import { PaginationComponent } from '../user/pagination/pagination.component';
 import { UserModule } from '../user/user.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { ListOrderComponent } from './order-components/list-order/list-order.component';
+import { UpdateOrderComponent } from './order-components/update-order/update-order.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,11 @@ import { CKEditorModule } from 'ckeditor4-angular';
     UpdateCategoryComponent,
     ListProductComponent,
     CreateProductComponent,
-
     UpdateProductComponent,
     ListUserComponent,
     UpdateUserComponent,
+    ListOrderComponent,
+    UpdateOrderComponent,
   ],
   imports: [
     CommonModule,

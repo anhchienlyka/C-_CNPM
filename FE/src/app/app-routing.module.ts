@@ -22,6 +22,7 @@ import { FindProductsByNameComponent } from './user/find-products-by-name/find-p
 import { UnauthorizedComponent } from './user/unauthorized/unauthorized.component';
 import { CheckoutComponent } from './user/checkout/checkout.component';
 import { CompleteComponent } from './user/complete/complete.component';
+import { ListOrderComponent } from './admin/order-components/list-order/list-order.component';
 
 const routes: Routes = [
   {
@@ -72,6 +73,15 @@ const routes: Routes = [
           { path: 'update/:id', component: UpdateUserComponent },
         ],
       },
+      {
+        path:'order',
+        children:[
+          
+            { path: '', component: ListOrderComponent },
+            { path: 'update/:id', component: UpdateUserComponent },
+          
+        ],
+      }
     ],
   },
 ];

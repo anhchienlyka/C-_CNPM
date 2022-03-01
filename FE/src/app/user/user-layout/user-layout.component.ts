@@ -47,8 +47,6 @@ export class UserLayoutComponent implements OnInit {
 
   getNumberOfProductInCart(){
     var products = this.cartService.getProductInCart();
-
-    console.log("productttttt",products)
     if(products!=null){
       let sum = 0;
       products.forEach(product => {
