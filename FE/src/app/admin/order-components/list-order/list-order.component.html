@@ -14,10 +14,10 @@
     <tbody>
       <tr *ngFor="let item of orders | paginate: { itemsPerPage: 6, currentPage: p } let i = index; "style=" text-align:center;">
         <td>{{i+1}}</td>
-        <td>{{item.userId}}</td>
+        <td>{{item.fullName}}</td>
         <td>{{item.orderDate}}</td>
         <td>{{item.totalPrice}}</td>
-        <td>{{item.userId}}</td>
+        <td>{{item.address}}</td>
         <td>{{item.payment}}</td>
         <td>
             <button type="button " class="btn btn-danger "  > <i class="fas fa-trash" aria-hidden="true"></i></button> &nbsp;

@@ -23,9 +23,26 @@ namespace Wallme_API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Order> GetAll()
+        public IEnumerable<orderVMs> GetAll()
         {
-            return _unitOfWork.OrderRepository.GetAll();
+            var orders= _unitOfWork.OrderRepository.GetAllOrders();
+            var listOrderVms = new List<orderVMs>();
+            foreach (var item in orders)
+            {
+                var hihi = new orderVMs()
+                {
+                    OderId = item.Id,
+                    UserId = item.UserId,
+                    FullName = item.User.FullName,
+                    Address = item.User.Address,
+                    OrderDate = item.OrderDate,
+                    Payment = item.Payment,
+                    Status = item.Status,
+                    TotalPrice = item.TotalPrice
+                };
+                listOrderVms.Add(hihi);
+            }
+            return listOrderVms.OrderByDescending(x=>x.OderId);
         }
 
         [HttpGet]

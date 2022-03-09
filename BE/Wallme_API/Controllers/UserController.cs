@@ -53,6 +53,14 @@ namespace Wallme_API.Controllers
             return await _userManager.UpdateAsync(user);
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<User>GetUserById(int id)
+        {
+            var user = await _userManager.FindByIdAsync(id.ToString());
+            return user;
+        }
+
         [HttpDelete]
         [Route("{id}")]
         public async Task<IdentityResult> Delete(int id)

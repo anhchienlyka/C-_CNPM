@@ -20,7 +20,11 @@ export class UserService {
   updateUser(){
 
   }
-
+getUserById(id:number)
+{
+  var url = this.apiUrl+`user/${id}`;
+  return this.httpClient.get<User>(url,{observe: 'body'})
+}
   deleteUser(id: number){ 
     var url = this.apiUrl+`user/${id}`;
     return this.httpClient.delete(url);

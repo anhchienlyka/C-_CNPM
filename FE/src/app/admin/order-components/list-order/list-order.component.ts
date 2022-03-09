@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from 'src/app/shared/order.model';
+import { Order, OrderVms } from 'src/app/shared/order.model';
 import { OrderService } from 'src/app/shared/order.service';
+import { User } from 'src/app/shared/user.model';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-list-order',
@@ -9,30 +11,34 @@ import { OrderService } from 'src/app/shared/order.service';
 })
 export class ListOrderComponent implements OnInit {
   p: number = 1;
-  orders : Order[]
-  constructor(private orderService: OrderService) {}
+  orders: OrderVms[];
+  user: User[];
+
+  constructor(
+    private orderService: OrderService,
+    private userSevice: UserService
+  ) {}
 
   ngOnInit(): void {
-
     this.getListOrder();
   }
 
   getListOrder() {
-    this.orderService.getOrders().subscribe((res) =>{
-     this.orders = res.body
+    this.orderService.getOrders().subscribe((res) => {
+      this.orders = res.body;
+      console.log("orderrrr",this.orders)
     });
-    
+
+   
   }
 
-
-getUserInfor(id:any)
-{
-
-}
-  deleteUser(p)
-  {
-
+  getUserInfor(id: any) {
+    let userInfor : User;
+    this.userSevice.getUserById(id).subscribe((res) => {
+      userInfor = res;
+     // console.log("userssss",userInfor)
+    });
+    return userInfor;
   }
-
-
+  deleteUser(p) {}
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Order } from './order.model';
+import { Order, OrderVms } from './order.model';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class OrderService {
   constructor(private httpClient : HttpClient) { }
 
 
-  getOrders():Observable<HttpResponse<Order[]>>{
-    return this.httpClient.get<Order[]>(this.apiUrl+'order',{observe: 'response'});
+  getOrders():Observable<HttpResponse<OrderVms[]>>{
+    return this.httpClient.get<OrderVms[]>(this.apiUrl+'order',{observe: 'response'});
   }
 
 

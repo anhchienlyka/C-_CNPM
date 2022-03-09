@@ -8,6 +8,6 @@ namespace Wallme_API.Infrastructures.IRepositories
 {
     public interface IOrderDetailRepository : IGenericRepository<OrderDetail>
     {
-
+       
     }
 }

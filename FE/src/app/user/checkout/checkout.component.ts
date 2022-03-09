@@ -83,8 +83,9 @@ export class CheckoutComponent implements OnInit {
       orderDate: newDate.toISOString(),
       orderDetails: this.orderDetailsInOrder,
       totalPrice: this.totalCost,
-      status: 0,
-      payment: false
+      status: 1,
+      payment: true,
+      user:null
     };
     this.orderService.addOrder(order).subscribe();
     let data: string = JSON.stringify(order);

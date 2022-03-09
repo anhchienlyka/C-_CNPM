@@ -8,7 +8,7 @@ namespace Wallme_API.Infrastructures.IRepositories
 {
     public interface IOrderRepository : IGenericRepository<Order>
     {
-         int GetLastOrderId();
-      
+        int GetLastOrderId();
+        IEnumerable<Order> GetAllOrders();
     }
 }
