@@ -27,13 +27,13 @@
                         class="badge position-absolute top-0 start-100 translate-middle bg-warning">{{numberOfProductInCart}}</span>
                 </button>
                 <button class="btn btn-success ms-4" [routerLink]="['login']" *ngIf="currentUser===null">
-                    ĐĂNG NHẬP <i class="fas fa-user"></i>
+                    LOG IN <i class="fas fa-user"></i>
                 </button>
                 <!-- <button class="btn btn-success ms-4" *ngIf="currentUser?.role==='admin'" [routerLink]="['admin']">
                     ADMIN <i class="fas fa-toolbox"></i>
                 </button> -->
                 <button class="btn btn-success ms-4" *ngIf="currentUser!==null" [routerLink]="['login']" (click)="logout()">
-                    ĐĂNG XUẤT <i class="fas fa-sign-out-alt"></i>
+                    LOG OUT <i class="fas fa-sign-out-alt"></i>
                 </button>
             </div>
         </div>
@@ -44,30 +44,30 @@
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">TRANG CHỦ</a>
+                                    <a class="nav-link active" aria-current="page" href="#"><b>HOME</b></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        DANH MỤC
+                                        <b>CATEGORIES</b>
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <li *ngFor="let item of categories">
-                                            <a class="dropdown-item" [routerLink]="['/bycategory', item.id]" routerLinkActive="router-link-active">{{item.name}}</a>
+                                            <a class="dropdown-item" [routerLink]="['/bycategory', item.id]" routerLinkActive="router-link-active"><b>{{item.name}}</b></a>
                                         </li>
                                     </ul>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">BẢO HÀNH</a>
+                                    <a class="nav-link active" aria-current="page" href="#"><b>CUSTOMER SERVICE</b></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">THU CŨ ĐỔI MỚI</a>
+                                    <a class="nav-link active" aria-current="page" href="#"><b>NEW COLLECTION</b></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">TIN TỨC</a>
+                                    <a class="nav-link active" aria-current="page" href="#"><b>NEWS</b></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">KHUYẾN MẠI</a>
+                                    <a class="nav-link active" aria-current="page" href="#"><b>PROMOTION</b></a>
                                 </li>
                             </ul>
                         </div>

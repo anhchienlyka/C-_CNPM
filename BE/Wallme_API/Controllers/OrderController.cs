@@ -56,6 +56,7 @@ namespace Wallme_API.Controllers
         public void Create(CreateOrderVM createOrderVM)
         {
                 Order order = _mapper.Map<Order>(createOrderVM);
+            order.OrderDate = DateTime.Now;
             _unitOfWork.OrderRepository.Add(order);
             foreach(var item in createOrderVM.OrderDetails)
             {

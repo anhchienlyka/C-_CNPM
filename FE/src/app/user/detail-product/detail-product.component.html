@@ -27,7 +27,7 @@
             <hr>
             <span>Kho: {{product?.inventory}}</span>
                 <input type="number" class="form-control mt-3" id="qty" [(ngModel)]="quantity">
-                <button class="btn btn-primary mt-3" (click)="addToCart(product)">ADD TO CART<i class="fas fa-shopping-cart"></i></button>
+                <button class="btn btn-primary mt-3" (click)="addToCart(product)">ADD TO CART <i class="fas fa-shopping-cart"></i></button>
                 <br>
             <p id="description" [innerHTML]="product?.description" > &nbsp;&nbsp;&nbsp;&nbsp; </p>
         </div>

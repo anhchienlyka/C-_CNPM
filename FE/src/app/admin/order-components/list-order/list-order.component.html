@@ -15,10 +15,11 @@
       <tr *ngFor="let item of orders | paginate: { itemsPerPage: 6, currentPage: p } let i = index; "style=" text-align:center;">
         <td>{{i+1}}</td>
         <td>{{item.fullName}}</td>
-        <td>{{item.orderDate}}</td>
+        <td>{{item.orderDate | date:'medium'}}</td>
         <td>{{item.totalPrice}}</td>
         <td>{{item.address}}</td>
-        <td>{{item.payment}}</td>
+        <td *ngIf="item.payment==true">Paypal</td>
+        <td *ngIf="item.payment==false">Payoneer</td>
         <td>
             <button type="button " class="btn btn-danger "  > <i class="fas fa-trash" aria-hidden="true"></i></button> &nbsp;
             <button type=" button " class="btn btn-warning " ><i class="fas fa-pencil-alt" aria-hidden="true"></i></button>&nbsp;

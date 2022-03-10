@@ -7,6 +7,7 @@ import { Order } from 'src/app/shared/order.model';
 import { OrderService } from 'src/app/shared/order.service';
 import { OrderDetail } from 'src/app/shared/orderDetail.model';
 import { User } from 'src/app/shared/user.model';
+import { Cart } from '../cart/cart.component';
 
 @Component({
   selector: 'app-checkout',
@@ -16,12 +17,12 @@ import { User } from 'src/app/shared/user.model';
 export class CheckoutComponent implements OnInit {
   currentUser: User;
   productsInCart: ProductOrder[];
-  quantity: any; 
-  total_price:number;
-  totalCost: number;
+  quantity?: any; 
+  total_price?:number;
+  totalCost?: number;
   orderDetailsInOrder: OrderDetail[] = [];
   constructor(private authenticationService: AuthenticationService,private cartService: CartService, private orderService:OrderService) {}
-  tesst : any;  
+
   
   
   ngOnInit(): void {
@@ -31,7 +32,6 @@ export class CheckoutComponent implements OnInit {
     this.totalCost =  this.totalPrice+50000;
    this.checkoutAccount();
     this.transfer();
-    this.onSubmit()
   }
 
   currentUserForm = new FormGroup({
@@ -64,11 +64,13 @@ export class CheckoutComponent implements OnInit {
         orderId: 0,
         productId: 0,
         price: 0,
-        total_Price: 0
+        total_Price: 0,
+        quantity:0
       }
       object1.productId = this.productsInCart[i].productId;
       object1.price = this.productsInCart[i].price;
       object1.total_Price =this.totalPrice;
+      object1.quantity= this.productsInCart[i].quantity;
       this.orderDetailsInOrder.push(object1)
     }
 
@@ -89,6 +91,7 @@ export class CheckoutComponent implements OnInit {
     };
     this.orderService.addOrder(order).subscribe();
     let data: string = JSON.stringify(order);
-
+    window.localStorage.removeItem('wallme-cart');
+    Cart.callBack.emit();
   }
 }
